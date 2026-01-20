@@ -4,25 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Finland Jobseeker Guide</title>
+
   <style>
+    :root {
+      --fin-blue: #003580;
+      --fin-light-blue: #0b5ed7;
+      --fin-white: #ffffff;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      background: #f4f6f8;
+      background: linear-gradient(180deg, #f4f8ff, #f4f6f8);
       color: #333;
     }
+
+    /* HEADER */
     header {
-      background: #0b5ed7;
-      color: white;
-      padding: 20px;
+      background: linear-gradient(
+        90deg,
+        var(--fin-blue),
+        var(--fin-light-blue),
+        var(--fin-white)
+      );
+      color: #fff;
+      padding: 30px 20px;
       text-align: center;
     }
+
+    header h1 {
+      margin-bottom: 8px;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 0;
+      opacity: 0.95;
+    }
+
+    /* NAVIGATION */
     nav {
       display: flex;
       flex-wrap: wrap;
       background: #ffffff;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 3px solid var(--fin-blue);
     }
+
     nav button {
       flex: 1;
       padding: 15px;
@@ -30,38 +57,88 @@
       background: none;
       cursor: pointer;
       font-size: 15px;
+      transition: background 0.3s, color 0.3s;
     }
+
     nav button:hover {
-      background: #eef3ff;
+      background: linear-gradient(
+        90deg,
+        #e6f0ff,
+        #ffffff
+      );
     }
+
     nav button.active {
-      background: #0b5ed7;
+      background: linear-gradient(
+        90deg,
+        var(--fin-blue),
+        var(--fin-light-blue)
+      );
       color: white;
       font-weight: bold;
     }
+
+    /* CONTENT */
     .content {
-      padding: 20px;
+      padding: 30px 20px;
       max-width: 1000px;
       margin: auto;
     }
+
     .tab-content {
       display: none;
       background: white;
-      padding: 20px;
-      border-radius: 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      animation: fadeIn 0.4s ease-in-out;
     }
+
     .tab-content.active {
       display: block;
     }
+
+    .tab-content h2 {
+      color: var(--fin-blue);
+      border-left: 6px solid var(--fin-light-blue);
+      padding-left: 12px;
+      margin-top: 0;
+    }
+
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 15px;
+      padding: 18px;
       font-size: 14px;
-      color: #666;
+      color: #444;
+      background: linear-gradient(
+        90deg,
+        #ffffff,
+        #e6f0ff
+      );
+      border-top: 1px solid #d0ddf5;
+    }
+
+    /* ANIMATION */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav button {
+        flex: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -70,13 +147,13 @@
 </header>
 
 <nav>
-  <button class="tab-btn active" onclick="openTab('jobs')">Search Jobs</button>
-  <button class="tab-btn" onclick="openTab('finnish')">Finnish Classes</button>
-  <button class="tab-btn" onclick="openTab('culture')">Culture</button>
-  <button class="tab-btn" onclick="openTab('construction')">Construction Jobs</button>
-  <button class="tab-btn" onclick="openTab('project')">Project Management</button>
-  <button class="tab-btn" onclick="openTab('driving')">Driving Licence Exchange</button>
-  <button class="tab-btn" onclick="openTab('safety')">Health & Safety Courses</button>
+  <button class="tab-btn active" onclick="openTab('jobs', this)">Search Jobs</button>
+  <button class="tab-btn" onclick="openTab('finnish', this)">Finnish Classes</button>
+  <button class="tab-btn" onclick="openTab('culture', this)">Culture</button>
+  <button class="tab-btn" onclick="openTab('construction', this)">Construction Jobs</button>
+  <button class="tab-btn" onclick="openTab('project', this)">Project Management</button>
+  <button class="tab-btn" onclick="openTab('driving', this)">Driving Licence Exchange</button>
+  <button class="tab-btn" onclick="openTab('safety', this)">Health & Safety Courses</button>
 </nav>
 
 <div class="content">
@@ -123,17 +200,18 @@
 </footer>
 
 <script>
-  function openTab(tabId) {
+  function openTab(tabId, btn) {
     const tabs = document.querySelectorAll('.tab-content');
     const buttons = document.querySelectorAll('.tab-btn');
 
     tabs.forEach(tab => tab.classList.remove('active'));
-    buttons.forEach(btn => btn.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
 
     document.getElementById(tabId).classList.add('active');
-    event.target.classList.add('active');
+    btn.classList.add('active');
   }
 </script>
 
 </body>
 </html>
+
