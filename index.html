@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finland Jobseeker Guide</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #333;
+    }
+    header {
+      background: #0b5ed7;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+    }
+    nav button {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    nav button:hover {
+      background: #eef3ff;
+    }
+    nav button.active {
+      background: #0b5ed7;
+      color: white;
+      font-weight: bold;
+    }
+    .content {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .tab-content {
+      display: none;
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .tab-content.active {
+      display: block;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Finland Jobseeker Information Portal</h1>
+  <p>All essential information for newcomers and jobseekers in Finland</p>
+</header>
+
+<nav>
+  <button class="tab-btn active" onclick="openTab('jobs')">Search Jobs</button>
+  <button class="tab-btn" onclick="openTab('finnish')">Finnish Classes</button>
+  <button class="tab-btn" onclick="openTab('culture')">Culture</button>
+  <button class="tab-btn" onclick="openTab('construction')">Construction Jobs</button>
+  <button class="tab-btn" onclick="openTab('project')">Project Management</button>
+  <button class="tab-btn" onclick="openTab('driving')">Driving Licence Exchange</button>
+  <button class="tab-btn" onclick="openTab('safety')">Health & Safety Courses</button>
+</nav>
+
+<div class="content">
+
+  <div id="jobs" class="tab-content active">
+    <h2>Search Jobs in Finland</h2>
+    <p>Placeholder: Add job portals, tips, CV guidelines, and application processes later.</p>
+  </div>
+
+  <div id="finnish" class="tab-content">
+    <h2>Finnish Language Classes</h2>
+    <p>Placeholder: Add information about integration courses, TE services, and private schools.</p>
+  </div>
+
+  <div id="culture" class="tab-content">
+    <h2>Finnish Culture & Working Life</h2>
+    <p>Placeholder: Add workplace culture, communication style, punctuality, and social norms.</p>
+  </div>
+
+  <div id="construction" class="tab-content">
+    <h2>Construction Jobs</h2>
+    <p>Placeholder: Add required cards, unions, salary levels, and common job roles.</p>
+  </div>
+
+  <div id="project" class="tab-content">
+    <h2>Project Management</h2>
+    <p>Placeholder: Add certifications, tools, and Finland-specific practices.</p>
+  </div>
+
+  <div id="driving" class="tab-content">
+    <h2>Driving Licence Exchange</h2>
+    <p>Placeholder: Add Traficom rules, eligible countries, and required documents.</p>
+  </div>
+
+  <div id="safety" class="tab-content">
+    <h2>Health & Safety Related Courses</h2>
+    <p>Placeholder: Add Occupational Safety Card, First Aid, Fire Safety, and Hygiene Pass.</p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Finland Jobseeker Guide | Built for newcomers
+</footer>
+
+<script>
+  function openTab(tabId) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
