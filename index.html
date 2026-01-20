@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Finland Jobseeker Guide</title>
 
-  <!-- GOOGLE FONTS -->
+  <!-- GOOGLE FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -13,28 +13,21 @@
       --fin-blue: #003580;
       --fin-light-blue: #0b5ed7;
       --fin-accent: #1f7aff;
-      --fin-white: #ffffff;
       --text-dark: #1f2937;
       --text-muted: #4b5563;
     }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       margin: 0;
       background: linear-gradient(180deg, #eef4ff, #f9fbff);
       color: var(--text-dark);
       line-height: 1.65;
     }
 
-    /* HEADER */
     header {
-      background: linear-gradient(
-        90deg,
-        var(--fin-blue),
-        var(--fin-accent),
-        var(--fin-light-blue)
-      );
-      color: #fff;
+      background: linear-gradient(90deg, var(--fin-blue), var(--fin-accent), var(--fin-light-blue));
+      color: white;
       padding: 42px 20px;
       text-align: center;
     }
@@ -43,21 +36,12 @@
       margin: 0 0 10px;
       font-size: 32px;
       font-weight: 700;
-      letter-spacing: -0.4px;
     }
 
-    header p {
-      margin: 0;
-      font-size: 16px;
-      opacity: 0.95;
-      font-weight: 400;
-    }
-
-    /* NAVIGATION */
     nav {
       display: flex;
       flex-wrap: wrap;
-      background: #ffffff;
+      background: #fff;
       border-bottom: 4px solid var(--fin-blue);
     }
 
@@ -69,26 +53,19 @@
       cursor: pointer;
       font-size: 14.5px;
       font-weight: 500;
-      color: var(--text-dark);
       transition: all 0.25s ease;
     }
 
     nav button:hover {
       background: linear-gradient(90deg, #e1ecff, #ffffff);
-      transform: translateY(-1px);
     }
 
     nav button.active {
-      background: linear-gradient(
-        90deg,
-        var(--fin-blue),
-        var(--fin-light-blue)
-      );
+      background: linear-gradient(90deg, var(--fin-blue), var(--fin-light-blue));
       color: white;
       font-weight: 600;
     }
 
-    /* CONTENT */
     .content {
       padding: 34px 20px;
       max-width: 1040px;
@@ -108,32 +85,32 @@
       display: block;
     }
 
-    .tab-content h2 {
+    h2 {
       color: var(--fin-blue);
       border-left: 6px solid var(--fin-accent);
       padding-left: 14px;
-      margin-top: 0;
       font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.2px;
     }
 
-    .tab-content p {
+    p {
       color: var(--text-muted);
       font-size: 15px;
     }
 
-    /* JOB LINKS */
+    /* JOB CARDS WITH LOGOS */
     .job-links {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 18px;
       margin-top: 24px;
     }
 
     .job-card {
+      display: flex;
+      gap: 14px;
+      align-items: center;
       background: linear-gradient(135deg, #f2f7ff, #ffffff);
-      padding: 20px;
+      padding: 18px;
       border-radius: 14px;
       border-left: 5px solid var(--fin-light-blue);
       box-shadow: 0 6px 16px rgba(0,0,0,0.08);
@@ -145,49 +122,45 @@
       box-shadow: 0 14px 30px rgba(11,94,215,0.25);
     }
 
-    .job-card a {
+    .job-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .job-card:hover .job-logo {
+      transform: scale(1.1);
+    }
+
+    .job-text a {
       text-decoration: none;
       color: var(--fin-blue);
       font-weight: 600;
       font-size: 16px;
     }
 
-    .job-card p {
-      margin: 10px 0 0;
+    .job-text p {
+      margin: 6px 0 0;
       font-size: 14px;
-      color: #374151;
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 20px;
       font-size: 13px;
-      color: #374151;
       background: linear-gradient(90deg, #ffffff, #e6f0ff);
       border-top: 1px solid #d0ddf5;
     }
 
-    /* ANIMATION */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
-      nav button {
-        flex: 100%;
-      }
-
-      header h1 {
-        font-size: 26px;
-      }
+      nav button { flex: 100%; }
+      header h1 { font-size: 26px; }
     }
   </style>
 </head>
@@ -221,70 +194,49 @@
       websites used in Finland, making it easier to explore opportunities in one place.
     </p>
 
-    <p>
-      Here you’ll find links to official portals, private job boards, and sector-specific
-      platforms where employers actively post vacancies. Use these resources to search for jobs,
-      understand market demand, and apply with confidence. Regularly checking multiple platforms
-      increases your chances of finding roles that match your skills and experience.
-    </p>
-
     <div class="job-links">
+
       <div class="job-card">
-        <a href="https://duunitori.fi/" target="_blank">Duunitori</a>
-        <p>One of the largest Finnish job portals with roles across all industries.</p>
+        <img class="job-logo" src="https://logo.clearbit.com/duunitori.fi" alt="Duunitori logo">
+        <div class="job-text">
+          <a href="https://duunitori.fi/" target="_blank">Duunitori</a>
+          <p>One of the largest Finnish job portals across all industries.</p>
+        </div>
       </div>
+
       <div class="job-card">
-        <a href="https://tyomarkkinatori.fi/" target="_blank">Työmarkkinatori</a>
-        <p>Official public employment service with job listings and guidance.</p>
+        <img class="job-logo" src="https://logo.clearbit.com/tyomarkkinatori.fi" alt="Työmarkkinatori logo">
+        <div class="job-text">
+          <a href="https://tyomarkkinatori.fi/" target="_blank">Työmarkkinatori</a>
+          <p>Official public employment service with guidance and vacancies.</p>
+        </div>
       </div>
+
       <div class="job-card">
-        <a href="https://www.jobly.fi/" target="_blank">Jobly</a>
-        <p>Popular platform for private-sector and professional jobs.</p>
+        <img class="job-logo" src="https://logo.clearbit.com/jobly.fi" alt="Jobly logo">
+        <div class="job-text">
+          <a href="https://www.jobly.fi/" target="_blank">Jobly</a>
+          <p>Popular platform for private-sector and professional roles.</p>
+        </div>
       </div>
+
       <div class="job-card">
-        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-        <p>Essential for networking, recruiter contact, and international roles.</p>
+        <img class="job-logo" src="https://logo.clearbit.com/linkedin.com" alt="LinkedIn logo">
+        <div class="job-text">
+          <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+          <p>Essential for networking and recruiter visibility.</p>
+        </div>
       </div>
+
       <div class="job-card">
-        <a href="https://fi.indeed.com/" target="_blank">Indeed Finland</a>
-        <p>Aggregates job advertisements from many Finnish companies.</p>
+        <img class="job-logo" src="https://logo.clearbit.com/indeed.com" alt="Indeed logo">
+        <div class="job-text">
+          <a href="https://fi.indeed.com/" target="_blank">Indeed Finland</a>
+          <p>Aggregates job ads from many Finnish companies.</p>
+        </div>
       </div>
+
     </div>
-  </div>
-
-  <div id="finnish" class="tab-content">
-    <h2>Finnish Language Classes</h2>
-    <p>Integration training, TE Services, online platforms, and private schools.</p>
-  </div>
-
-  <div id="workculture" class="tab-content">
-    <h2>Work Culture & Associations</h2>
-    <p>Finnish workplace norms, employee rights, trade unions, and professional associations.</p>
-  </div>
-
-  <div id="construction" class="tab-content">
-    <h2>Construction Jobs</h2>
-    <p>Required cards, safety rules, unions, and common job roles.</p>
-  </div>
-
-  <div id="it" class="tab-content">
-    <h2>IT & Tech Jobs in Finland</h2>
-    <p>In-demand skills, certifications, hiring practices, and job portals.</p>
-  </div>
-
-  <div id="project" class="tab-content">
-    <h2>Project Management</h2>
-    <p>Agile, PMP, PRINCE2, and Finland-specific project practices.</p>
-  </div>
-
-  <div id="driving" class="tab-content">
-    <h2>Driving Licence Exchange</h2>
-    <p>Traficom rules, eligible countries, and required documents.</p>
-  </div>
-
-  <div id="safety" class="tab-content">
-    <h2>Health & Safety Courses</h2>
-    <p>Occupational Safety Card, First Aid, Fire Safety, and Hygiene Pass.</p>
   </div>
 
 </div>
@@ -297,10 +249,8 @@
   function openTab(tabId, btn) {
     const tabs = document.querySelectorAll('.tab-content');
     const buttons = document.querySelectorAll('.tab-btn');
-
     tabs.forEach(tab => tab.classList.remove('active'));
     buttons.forEach(button => button.classList.remove('active'));
-
     document.getElementById(tabId).classList.add('active');
     btn.classList.add('active');
   }
