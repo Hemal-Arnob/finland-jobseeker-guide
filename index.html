@@ -19,7 +19,6 @@
       color: #333;
     }
 
-    /* HEADER */
     header {
       background: linear-gradient(
         90deg,
@@ -37,12 +36,6 @@
       font-size: 28px;
     }
 
-    header p {
-      margin: 0;
-      opacity: 0.95;
-    }
-
-    /* NAVIGATION */
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -61,11 +54,7 @@
     }
 
     nav button:hover {
-      background: linear-gradient(
-        90deg,
-        #e6f0ff,
-        #ffffff
-      );
+      background: linear-gradient(90deg, #e6f0ff, #ffffff);
     }
 
     nav button.active {
@@ -78,7 +67,6 @@
       font-weight: bold;
     }
 
-    /* CONTENT */
     .content {
       padding: 30px 20px;
       max-width: 1000px;
@@ -105,21 +93,15 @@
       margin-top: 0;
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 18px;
       font-size: 14px;
       color: #444;
-      background: linear-gradient(
-        90deg,
-        #ffffff,
-        #e6f0ff
-      );
+      background: linear-gradient(90deg, #ffffff, #e6f0ff);
       border-top: 1px solid #d0ddf5;
     }
 
-    /* ANIMATION */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -149,8 +131,9 @@
 <nav>
   <button class="tab-btn active" onclick="openTab('jobs', this)">Search Jobs</button>
   <button class="tab-btn" onclick="openTab('finnish', this)">Finnish Classes</button>
-  <button class="tab-btn" onclick="openTab('culture', this)">Culture</button>
+  <button class="tab-btn" onclick="openTab('workculture', this)">Work Culture & Associations</button>
   <button class="tab-btn" onclick="openTab('construction', this)">Construction Jobs</button>
+  <button class="tab-btn" onclick="openTab('it', this)">IT & Tech Jobs</button>
   <button class="tab-btn" onclick="openTab('project', this)">Project Management</button>
   <button class="tab-btn" onclick="openTab('driving', this)">Driving Licence Exchange</button>
   <button class="tab-btn" onclick="openTab('safety', this)">Health & Safety Courses</button>
@@ -160,37 +143,42 @@
 
   <div id="jobs" class="tab-content active">
     <h2>Search Jobs in Finland</h2>
-    <p>Placeholder: Add job portals, tips, CV guidelines, and application processes later.</p>
+    <p>Placeholder: Add job portals, CV tips, LinkedIn usage, and application processes.</p>
   </div>
 
   <div id="finnish" class="tab-content">
     <h2>Finnish Language Classes</h2>
-    <p>Placeholder: Add information about integration courses, TE services, and private schools.</p>
+    <p>Placeholder: Integration training, TE Services, online platforms, and private schools.</p>
   </div>
 
-  <div id="culture" class="tab-content">
-    <h2>Finnish Culture & Working Life</h2>
-    <p>Placeholder: Add workplace culture, communication style, punctuality, and social norms.</p>
+  <div id="workculture" class="tab-content">
+    <h2>Work Culture & Associations</h2>
+    <p>Placeholder: Finnish workplace culture, communication style, trade unions, professional associations, and employee rights.</p>
   </div>
 
   <div id="construction" class="tab-content">
     <h2>Construction Jobs</h2>
-    <p>Placeholder: Add required cards, unions, salary levels, and common job roles.</p>
+    <p>Placeholder: Required cards, unions, salary ranges, and job roles.</p>
+  </div>
+
+  <div id="it" class="tab-content">
+    <h2>IT & Tech Jobs in Finland</h2>
+    <p>Placeholder: Software, data, cybersecurity roles, job portals, skills demand, and certifications.</p>
   </div>
 
   <div id="project" class="tab-content">
     <h2>Project Management</h2>
-    <p>Placeholder: Add certifications, tools, and Finland-specific practices.</p>
+    <p>Placeholder: Certifications, tools, agile practices, and Finland-specific standards.</p>
   </div>
 
   <div id="driving" class="tab-content">
     <h2>Driving Licence Exchange</h2>
-    <p>Placeholder: Add Traficom rules, eligible countries, and required documents.</p>
+    <p>Placeholder: Traficom rules, eligible countries, and required documents.</p>
   </div>
 
   <div id="safety" class="tab-content">
     <h2>Health & Safety Related Courses</h2>
-    <p>Placeholder: Add Occupational Safety Card, First Aid, Fire Safety, and Hygiene Pass.</p>
+    <p>Placeholder: Occupational Safety Card, First Aid, Fire Safety, and Hygiene Pass.</p>
   </div>
 
 </div>
