@@ -13,13 +13,13 @@
       --fin-blue: #003580;
       --fin-light-blue: #0b5ed7;
       --fin-accent: #1f7aff;
-      --fin-secondary: #0dcaf0;
       --text-dark: #1f2937;
       --text-muted: #4b5563;
       --tag-bg: #e6f0ff;
-      --bg-light: #f4f8ff;
+      --bg-light: #f4f6f8;
       --bg-section: #ffffff;
-      --bg-gradient: linear-gradient(135deg, #e3f2ff, #ffffff);
+      --bg-card: linear-gradient(145deg, #f4f8ff, #ffffff);
+      --tag-color: #003580;
     }
 
     body {
@@ -30,27 +30,31 @@
       line-height: 1.65;
     }
 
+    /* HEADER – Finnish flag style */
     header {
-      background: linear-gradient(135deg, var(--fin-blue), var(--fin-accent), var(--fin-secondary));
-      color: white;
+      background: #ffffff;
+      color: var(--fin-blue);
       padding: 50px 20px;
       text-align: center;
-      border-bottom: 4px solid var(--fin-light-blue);
+      border-bottom: 4px solid var(--fin-blue);
     }
 
     header h1 {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       font-size: 34px;
       font-weight: 700;
       letter-spacing: -0.5px;
+      color: var(--fin-blue);
     }
 
     header p {
       margin: 0;
       font-size: 16px;
-      opacity: 0.95;
+      color: var(--fin-blue);
+      opacity: 0.9;
     }
 
+    /* NAVIGATION */
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -71,18 +75,19 @@
     }
 
     nav button:hover {
-      background: var(--bg-light);
+      background: #e8f0ff;
       transform: translateY(-2px);
       color: var(--fin-accent);
     }
 
     nav button.active {
-      background: linear-gradient(90deg, var(--fin-blue), var(--fin-accent));
+      background: var(--fin-blue);
       color: white;
       font-weight: 600;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
+    /* CONTENT */
     .content {
       padding: 36px 20px;
       max-width: 1040px;
@@ -91,13 +96,12 @@
 
     .tab-content {
       display: none;
-      background: var(--bg-section);
+      background: var(--bg-card);
       padding: 32px;
       border-radius: 16px;
       box-shadow: 0 12px 28px rgba(0,0,0,0.08);
       margin-bottom: 30px;
       animation: fadeIn 0.35s ease-in-out;
-      background-image: var(--bg-gradient);
     }
 
     .tab-content.active {
@@ -126,7 +130,7 @@
     }
 
     .job-card {
-      background: linear-gradient(145deg, #e8f0ff, #ffffff);
+      background: linear-gradient(145deg, #f7f9fc, #ffffff);
       padding: 20px;
       border-radius: 16px;
       border-left: 5px solid var(--fin-light-blue);
@@ -163,7 +167,7 @@
 
     .tag {
       background: var(--tag-bg);
-      color: var(--fin-blue);
+      color: var(--tag-color);
       font-size: 12px;
       font-weight: 500;
       padding: 5px 10px;
@@ -195,6 +199,7 @@
       nav button { flex: 100%; }
       header h1 { font-size: 28px; }
     }
+
   </style>
 </head>
 
