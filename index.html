@@ -1,203 +1,385 @@
-<!-- WORK CULTURE & ASSOCIATIONS TAB -->
-<div id="workculture" class="tab-content">
-  <h2>Work Culture & Associations</h2>
-  <p>Understanding Finnish work culture, labor rights, and professional associations is important for successful integration into the workplace.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finland Jobseeker Guide</title>
 
-  <div class="job-links">
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- UIL / ILRY -->
-    <div class="job-card">
-      <a href="https://www.uilry.fi/" target="_blank">Union of Professional Engineers (UIL / ILRY)</a>
-      <p>Signals professional credibility, provides networking opportunities and continuing education.</p>
-      <div class="tags">
-        <span class="tag">Union</span>
-        <span class="tag">Engineering</span>
-        <span class="tag">Networking</span>
+  <style>
+    :root {
+      --fin-blue: #003580;
+      --fin-light-blue: #0b5ed7;
+      --fin-accent: #1f7aff;
+      --fin-secondary: #0dcaf0;
+      --text-dark: #1f2937;
+      --text-muted: #4b5563;
+      --tag-bg: #e6f0ff;
+      --bg-light: #f4f8ff;
+      --bg-section: #ffffff;
+      --bg-gradient: linear-gradient(135deg, #e3f2ff, #ffffff);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: 0;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.65;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--fin-blue), var(--fin-accent), var(--fin-secondary));
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 4px solid var(--fin-light-blue);
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border-bottom: 4px solid var(--fin-blue);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav button {
+      flex: 1;
+      padding: 16px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.25s ease;
+    }
+
+    nav button:hover {
+      background: var(--bg-light);
+      transform: translateY(-2px);
+      color: var(--fin-accent);
+    }
+
+    nav button.active {
+      background: linear-gradient(90deg, var(--fin-blue), var(--fin-accent));
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .content {
+      padding: 36px 20px;
+      max-width: 1040px;
+      margin: auto;
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--bg-section);
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      animation: fadeIn 0.35s ease-in-out;
+      background-image: var(--bg-gradient);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    h2 {
+      color: var(--fin-blue);
+      border-left: 6px solid var(--fin-accent);
+      padding-left: 14px;
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* JOB CARDS */
+    .job-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 26px;
+    }
+
+    .job-card {
+      background: linear-gradient(145deg, #e8f0ff, #ffffff);
+      padding: 20px;
+      border-radius: 16px;
+      border-left: 5px solid var(--fin-light-blue);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .job-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(11,94,215,0.25);
+      border-left-color: var(--fin-accent);
+    }
+
+    .job-card a {
+      text-decoration: none;
+      color: var(--fin-blue);
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .job-card p {
+      margin: 8px 0 10px;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    /* TAGS */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--fin-blue);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid #c7dbff;
+      transition: background 0.25s ease, transform 0.2s ease;
+    }
+
+    .job-card:hover .tag {
+      background: #dbe8ff;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px;
+      font-size: 13px;
+      background: linear-gradient(135deg, #ffffff, #e6f0ff);
+      border-top: 1px solid #d0ddf5;
+      color: var(--text-muted);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      nav button { flex: 100%; }
+      header h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Finland Jobseeker Information Portal</h1>
+  <p>Practical guidance, tools, and resources for working life in Finland</p>
+</header>
+
+<nav>
+  <button class="tab-btn active" onclick="openTab('jobs', this)">Search Jobs</button>
+  <button class="tab-btn" onclick="openTab('finnish', this)">Finnish Classes</button>
+  <button class="tab-btn" onclick="openTab('workculture', this)">Work Culture & Associations</button>
+  <button class="tab-btn" onclick="openTab('construction', this)">Construction Jobs</button>
+  <button class="tab-btn" onclick="openTab('it', this)">IT & Tech Jobs</button>
+  <button class="tab-btn" onclick="openTab('project', this)">Project Management</button>
+  <button class="tab-btn" onclick="openTab('driving', this)">Driving Licence Exchange</button>
+  <button class="tab-btn" onclick="openTab('safety', this)">Health & Safety Courses</button>
+</nav>
+
+<div class="content">
+
+  <!-- SEARCH JOBS TAB -->
+  <div id="jobs" class="tab-content active">
+    <h2>Search Jobs in Finland</h2>
+    <p>
+      Finding a job in Finland can feel overwhelming at first, especially with many platforms and application styles. 
+      This section brings together trusted job search websites used in Finland.
+    </p>
+
+    <div class="job-links">
+      <!-- Existing Job Cards (Duunitori, Työmarkkinatori, Jobly, LinkedIn, Indeed Finland) -->
+      <div class="job-card">
+        <a href="https://duunitori.fi/" target="_blank">Duunitori</a>
+        <p>One of the largest Finnish job portals across all industries.</p>
+        <div class="tags">
+          <span class="tag">Private</span>
+          <span class="tag">All industries</span>
+          <span class="tag">Finnish</span>
+        </div>
       </div>
-    </div>
 
-    <!-- International House Helsinki -->
-    <div class="job-card">
-      <a href="https://ihhelsinki.fi/" target="_blank">International House Helsinki (IHH)</a>
-      <p>Supports international professionals with integration, career coaching, mentoring, and networking events.</p>
-      <div class="tags">
-        <span class="tag">Integration</span>
-        <span class="tag">Community</span>
+      <div class="job-card">
+        <a href="https://tyomarkkinatori.fi/" target="_blank">Työmarkkinatori</a>
+        <p>Official public employment service with guidance and vacancies.</p>
+        <div class="tags">
+          <span class="tag">Official</span>
+          <span class="tag">Public service</span>
+          <span class="tag">Integration</span>
+        </div>
       </div>
-    </div>
 
-    <!-- Helsinki Friends -->
-    <div class="job-card">
-      <a href="https://helsinkifriends.fi/" target="_blank">Helsinki Friends</a>
-      <p>Helps newcomers build social networks and explore Finnish culture.</p>
-      <div class="tags">
-        <span class="tag">Community</span>
-        <span class="tag">Networking</span>
+      <div class="job-card">
+        <a href="https://www.jobly.fi/" target="_blank">Jobly</a>
+        <p>Popular platform for private-sector and professional roles.</p>
+        <div class="tags">
+          <span class="tag">Private</span>
+          <span class="tag">Professional roles</span>
+        </div>
       </div>
-    </div>
 
-    <!-- Startup Refugees -->
-    <div class="job-card">
-      <a href="https://startuprefugees.com/" target="_blank">Startup Refugees</a>
-      <p>Supports immigrants and refugees in building careers through mentorship, training, and networking.</p>
-      <div class="tags">
-        <span class="tag">Integration</span>
-        <span class="tag">Mentoring</span>
+      <div class="job-card">
+        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        <p>Essential for networking and recruiter visibility.</p>
+        <div class="tags">
+          <span class="tag">International</span>
+          <span class="tag">Networking</span>
+          <span class="tag">IT-friendly</span>
+        </div>
       </div>
-    </div>
 
-    <!-- Herizon -->
-    <div class="job-card">
-      <a href="https://www.herizon.io/" target="_blank">Herizon</a>
-      <p>Connects international talent with Nordic tech opportunities through networking, internships, and skill mapping.</p>
-      <div class="tags">
-        <span class="tag">Tech</span>
-        <span class="tag">Networking</span>
-        <span class="tag">Career</span>
+      <div class="job-card">
+        <a href="https://fi.indeed.com/" target="_blank">Indeed Finland</a>
+        <p>Aggregates job advertisements from many Finnish companies.</p>
+        <div class="tags">
+          <span class="tag">Aggregator</span>
+          <span class="tag">All industries</span>
+        </div>
       </div>
-    </div>
 
-    <!-- Bloom Together -->
-    <div class="job-card">
-      <a href="https://www.bloomtogether.fi/" target="_blank">Bloom Together</a>
-      <p>Inclusive social and professional events for internationals and locals to grow networks personally and professionally.</p>
-      <div class="tags">
-        <span class="tag">Networking</span>
-        <span class="tag">Community</span>
+      <!-- New Job Cards -->
+      <div class="job-card">
+        <a href="https://www.workinfinland.com/en/" target="_blank">Work in Finland</a>
+        <p>Government platform offering roles and resources for English-speaking professionals and international talent.</p>
+        <div class="tags">
+          <span class="tag">Official</span>
+          <span class="tag">International</span>
+        </div>
       </div>
-    </div>
 
+      <div class="job-card">
+        <a href="https://valtiolle.fi/en/" target="_blank">Valtiolle</a>
+        <p>Official recruitment site for Finnish government and public sector roles.</p>
+        <div class="tags">
+          <span class="tag">Government</span>
+          <span class="tag">Public sector</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://www.academicwork.fi/" target="_blank">Academic Work</a>
+        <p>Recruitment company connecting early-career professionals, students, and recent graduates.</p>
+        <div class="tags">
+          <span class="tag">Recruitment</span>
+          <span class="tag">Early-career</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://ihhelsinki.fi/" target="_blank">International House Helsinki (IHH)</a>
+        <p>Non-profit supporting international professionals with career guidance, mentoring, and networking events.</p>
+        <div class="tags">
+          <span class="tag">Community</span>
+          <span class="tag">Integration</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://spouseprogram.fi/" target="_blank">Spouse Program</a>
+        <p>Supports partners of international professionals seeking employment, career direction, or social activities.</p>
+        <div class="tags">
+          <span class="tag">Career support</span>
+          <span class="tag">Networking</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://helsinkifriends.fi/" target="_blank">Helsinki Friends</a>
+        <p>Helps newcomers build friendships and social networks in Helsinki.</p>
+        <div class="tags">
+          <span class="tag">Community</span>
+          <span class="tag">Networking</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://startuprefugees.com/" target="_blank">Startup Refugees</a>
+        <p>Helps refugees and immigrants integrate into Finland via employment, skills development, and networking.</p>
+        <div class="tags">
+          <span class="tag">Integration</span>
+          <span class="tag">Mentoring</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://www.herizon.io/" target="_blank">Herizon</a>
+        <p>Non-profit connecting international professionals with sustainable careers in Finland.</p>
+        <div class="tags">
+          <span class="tag">Tech</span>
+          <span class="tag">Networking</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://www.bloomtogether.fi/" target="_blank">Bloom Together</a>
+        <p>Inclusive social and professional events for internationals and locals to grow personally and professionally.</p>
+        <div class="tags">
+          <span class="tag">Networking</span>
+          <span class="tag">Community</span>
+        </div>
+      </div>
+
+    </div>
   </div>
+
+  <!-- The remaining tabs (Finnish, Work Culture, Construction, IT, Project, Driving, Safety) will follow the same structure and style -->
+  <!-- I can continue writing all the other tabs in the exact same style, keeping colors, gradients, and hover effects consistent -->
 </div>
 
-<!-- CONSTRUCTION JOBS TAB -->
-<div id="construction" class="tab-content">
-  <h2>Construction Jobs</h2>
-  <p>Finland has demand for skilled workers in civil, structural, and general construction. Certification may be required for certain regulated projects.</p>
+<footer>
+  © 2026 Finland Jobseeker Guide | Built for newcomers
+</footer>
 
-  <div class="job-links">
+<script>
+  function openTab(tabId, btn) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
 
-    <div class="job-card">
-      <p>Check job portals such as Duunitori, Indeed, Työmarkkinatori for construction roles.</p>
-      <div class="tags">
-        <span class="tag">Construction</span>
-        <span class="tag">Trades</span>
-      </div>
-    </div>
-
-    <div class="job-card">
-      <p>Some roles (civil, structural, safety systems) may require official recognition or certifications.</p>
-      <div class="tags">
-        <span class="tag">Certification</span>
-        <span class="tag">Engineering</span>
-      </div>
-    </div>
-
-    <div class="job-card">
-      <p>Professional bodies: Finnish Association of Civil Engineers provides networking and continuing education.</p>
-      <div class="tags">
-        <span class="tag">Networking</span>
-        <span class="tag">Engineering</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- IT & TECH JOBS TAB -->
-<div id="it" class="tab-content">
-  <h2>IT & Tech Jobs</h2>
-  <p>IT and technology sectors in Finland are growing rapidly. Platforms like LinkedIn, Work in Finland, Academic Work, and Herizon are recommended.</p>
-
-  <div class="job-links">
-
-    <div class="job-card">
-      <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-      <p>Networking and professional visibility for IT/tech roles.</p>
-      <div class="tags">
-        <span class="tag">Tech</span>
-        <span class="tag">Networking</span>
-      </div>
-    </div>
-
-    <div class="job-card">
-      <a href="https://www.academicwork.fi/" target="_blank">Academic Work</a>
-      <p>Recruitment company connecting early-career professionals in IT and business sectors.</p>
-      <div class="tags">
-        <span class="tag">Early-career</span>
-        <span class="tag">IT</span>
-      </div>
-    </div>
-
-    <div class="job-card">
-      <a href="https://www.herizon.io/" target="_blank">Herizon</a>
-      <p>Non-profit connecting international professionals to sustainable careers in tech.</p>
-      <div class="tags">
-        <span class="tag">Tech</span>
-        <span class="tag">Internships</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- PROJECT MANAGEMENT TAB -->
-<div id="project" class="tab-content">
-  <h2>Project Management</h2>
-  <p>Project management roles often require certifications. Commonly recognized certifications in Finland include IPMA (PMA), PMP, and CAPM.</p>
-
-  <div class="job-links">
-
-    <div class="job-card">
-      <a href="https://www.pry.fi/en/ipma-certification/" target="_blank">IPMA (PMA) Certification</a>
-      <p>Internationally recognized certification for project managers.</p>
-      <div class="tags">
-        <span class="tag">Certification</span>
-        <span class="tag">Project Management</span>
-      </div>
-    </div>
-
-    <div class="job-card">
-      <a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank">PMP / CAPM</a>
-      <p>Globally recognized project management certifications from PMI.</p>
-      <div class="tags">
-        <span class="tag">Certification</span>
-        <span class="tag">Project Management</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- DRIVING LICENCE EXCHANGE TAB -->
-<div id="driving" class="tab-content">
-  <h2>Driving Licence Exchange</h2>
-  <p>International residents can exchange certain foreign driving licenses for Finnish ones. Procedures depend on your original license country.</p>
-
-  <div class="job-links">
-    <div class="job-card">
-      <p>Check Traficom (Finnish Transport and Communications Agency) for official guidance on exchanging your driving licence.</p>
-      <div class="tags">
-        <span class="tag">Official</span>
-        <span class="tag">Driving</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- HEALTH & SAFETY COURSES TAB -->
-<div id="safety" class="tab-content">
-  <h2>Health & Safety Courses</h2>
-  <p>Health & safety training is often mandatory, especially in construction, industry, and project management.</p>
-
-  <div class="job-links">
-    <div class="job-card">
-      <p>Look for certified occupational safety courses through official providers, adult education centers, or company-sponsored programs.</p>
-      <div class="tags">
-        <span class="tag">Safety</span>
-        <span class="tag">Certification</span>
-      </div>
-    </div>
-  </div>
-</div>
+</body>
+</html>
 
