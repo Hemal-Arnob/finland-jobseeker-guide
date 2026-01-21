@@ -1,51 +1,351 @@
-<div id="it" class="tab-content">
-  <h2>IT & Tech Jobs in Finland</h2>
-  <p>
-    If you are new to Finland and looking for an IT job, many jobs are shared on online job websites.
-    These platforms are useful for international and immigrant job seekers.
-  </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finland Jobseeker Guide</title>
 
-  <div class="job-links">
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <div class="job-card">
-      <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-      <p>International job website for professionals. Very popular in Finland, especially for IT jobs. Many jobs are in English.</p>
-      <div class="tags">
-        <span class="tag">Professional</span>
-        <span class="tag">Networking</span>
-        <span class="tag">IT</span>
+  <style>
+    :root {
+      --fin-blue: #003580;
+      --fin-light-blue: #0b5ed7;
+      --fin-accent: #1f7aff;
+      --fin-secondary: #0dcaf0;
+      --text-dark: #1f2937;
+      --text-muted: #4b5563;
+      --tag-bg: #e6f0ff;
+      --bg-light: #f4f8ff;
+      --bg-section: #ffffff;
+      --bg-gradient: linear-gradient(135deg, #e3f2ff, #ffffff);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: 0;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.65;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--fin-blue), var(--fin-accent), var(--fin-secondary));
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 4px solid var(--fin-light-blue);
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border-bottom: 4px solid var(--fin-blue);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav button {
+      flex: 1;
+      padding: 16px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.25s ease;
+    }
+
+    nav button:hover {
+      background: var(--bg-light);
+      transform: translateY(-2px);
+      color: var(--fin-accent);
+    }
+
+    nav button.active {
+      background: linear-gradient(90deg, var(--fin-blue), var(--fin-accent));
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .content {
+      padding: 36px 20px;
+      max-width: 1040px;
+      margin: auto;
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--bg-section);
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      animation: fadeIn 0.35s ease-in-out;
+      background-image: var(--bg-gradient);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    h2 {
+      color: var(--fin-blue);
+      border-left: 6px solid var(--fin-accent);
+      padding-left: 14px;
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* JOB CARDS */
+    .job-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 26px;
+    }
+
+    .job-card {
+      background: linear-gradient(145deg, #e8f0ff, #ffffff);
+      padding: 20px;
+      border-radius: 16px;
+      border-left: 5px solid var(--fin-light-blue);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .job-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(11,94,215,0.25);
+      border-left-color: var(--fin-accent);
+    }
+
+    .job-card a {
+      text-decoration: none;
+      color: var(--fin-blue);
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .job-card p {
+      margin: 8px 0 10px;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    /* TAGS */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--fin-blue);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid #c7dbff;
+      transition: background 0.25s ease, transform 0.2s ease;
+    }
+
+    .job-card:hover .tag {
+      background: #dbe8ff;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px;
+      font-size: 13px;
+      background: linear-gradient(135deg, #ffffff, #e6f0ff);
+      border-top: 1px solid #d0ddf5;
+      color: var(--text-muted);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      nav button { flex: 100%; }
+      header h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Finland Jobseeker Information Portal</h1>
+  <p>Practical guidance, tools, and resources for working life in Finland</p>
+</header>
+
+<nav>
+  <button class="tab-btn active" onclick="openTab('jobs', this)">Search Jobs</button>
+  <button class="tab-btn" onclick="openTab('finnish', this)">Finnish Classes</button>
+  <button class="tab-btn" onclick="openTab('workculture', this)">Work Culture & Associations</button>
+  <button class="tab-btn" onclick="openTab('construction', this)">Construction Jobs</button>
+  <button class="tab-btn" onclick="openTab('it', this)">IT & Tech Jobs</button>
+  <button class="tab-btn" onclick="openTab('project', this)">Project Management</button>
+  <button class="tab-btn" onclick="openTab('driving', this)">Driving Licence Exchange</button>
+  <button class="tab-btn" onclick="openTab('safety', this)">Health & Safety Courses</button>
+</nav>
+
+<div class="content">
+
+  <!-- SEARCH JOBS TAB -->
+  <div id="jobs" class="tab-content active">
+    <h2>Search Jobs in Finland</h2>
+    <p>
+      Finding a job in Finland can feel overwhelming at first, especially with many platforms and application styles. 
+      This section brings together trusted job search websites used in Finland.
+    </p>
+
+    <div class="job-links">
+      <div class="job-card">
+        <a href="https://duunitori.fi/" target="_blank">Duunitori</a>
+        <p>One of the largest Finnish job portals across all industries.</p>
+        <div class="tags">
+          <span class="tag">Private</span>
+          <span class="tag">All industries</span>
+          <span class="tag">Finnish</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://tyomarkkinatori.fi/" target="_blank">Työmarkkinatori</a>
+        <p>Official public employment service with guidance and vacancies.</p>
+        <div class="tags">
+          <span class="tag">Official</span>
+          <span class="tag">Public service</span>
+          <span class="tag">Integration</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://www.jobly.fi/" target="_blank">Jobly</a>
+        <p>Popular platform for private-sector and professional roles.</p>
+        <div class="tags">
+          <span class="tag">Private</span>
+          <span class="tag">Professional roles</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+        <p>Essential for networking and recruiter visibility.</p>
+        <div class="tags">
+          <span class="tag">International</span>
+          <span class="tag">Networking</span>
+          <span class="tag">IT-friendly</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://fi.indeed.com/" target="_blank">Indeed Finland</a>
+        <p>Aggregates job advertisements from many Finnish companies.</p>
+        <div class="tags">
+          <span class="tag">Aggregator</span>
+          <span class="tag">All industries</span>
+        </div>
       </div>
     </div>
-
-    <div class="job-card">
-      <a href="https://www.jobly.fi" target="_blank">Jobly</a>
-      <p>Finnish job website with many employers. Includes IT and technology jobs. Jobs can be in English or Finnish.</p>
-      <div class="tags">
-        <span class="tag">Finnish</span>
-        <span class="tag">IT</span>
-        <span class="tag">Tech</span>
-      </div>
-    </div>
-
-    <div class="job-card">
-      <a href="https://www.workinfinland.com" target="_blank">Work in Finland</a>
-      <p>Official website for international professionals. Focuses on jobs for people moving to Finland. Offers IT job listings and English-friendly opportunities.</p>
-      <div class="tags">
-        <span class="tag">Official</span>
-        <span class="tag">International</span>
-      </div>
-    </div>
-
-    <div class="job-card">
-      <a href="https://tyomarkkinatori.fi" target="_blank">Työmarkkinatori (Job Market Finland)</a>
-      <p>Official Finnish government job website. Free to use, many IT listings, some in English, connected to TE Services for immigrants.</p>
-      <div class="tags">
-        <span class="tag">Official</span>
-        <span class="tag">Government</span>
-        <span class="tag">IT</span>
-      </div>
-    </div>
-
   </div>
+
+  <!-- IT & TECH JOBS TAB -->
+  <div id="it" class="tab-content">
+    <h2>IT & Tech Jobs in Finland</h2>
+    <p>
+      If you are new to Finland and looking for an IT job, many jobs are shared on online job websites.
+      These platforms are useful for international and immigrant job seekers.
+    </p>
+
+    <div class="job-links">
+      <div class="job-card">
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        <p>International job website for professionals. Very popular in Finland, especially for IT jobs. Many jobs are in English.</p>
+        <div class="tags">
+          <span class="tag">Professional</span>
+          <span class="tag">Networking</span>
+          <span class="tag">IT</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://www.jobly.fi" target="_blank">Jobly</a>
+        <p>Finnish job website with many employers. Includes IT and technology jobs. Jobs can be in English or Finnish.</p>
+        <div class="tags">
+          <span class="tag">Finnish</span>
+          <span class="tag">IT</span>
+          <span class="tag">Tech</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://www.workinfinland.com" target="_blank">Work in Finland</a>
+        <p>Official website for international professionals. Focuses on jobs for people moving to Finland. Offers IT job listings and English-friendly opportunities.</p>
+        <div class="tags">
+          <span class="tag">Official</span>
+          <span class="tag">International</span>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <a href="https://tyomarkkinatori.fi" target="_blank">Työmarkkinatori (Job Market Finland)</a>
+        <p>Official Finnish government job website. Free to use, many IT listings, some in English, connected to TE Services for immigrants.</p>
+        <div class="tags">
+          <span class="tag">Official</span>
+          <span class="tag">Government</span>
+          <span class="tag">IT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Other tabs like Finnish Classes, Work Culture, Construction, Project Management, Driving, Safety can be added here similarly -->
+
 </div>
+
+<footer>
+  © 2026 Finland Jobseeker Guide | Built for newcomers
+</footer>
+
+<script>
+  function openTab(tabId, btn) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    buttons.forEach(button => button.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
 
