@@ -6,24 +6,33 @@
   <title>Job Search & Integration Resources – Finland</title>
 
   <style>
+    :root {
+      --primary: #1e5bb8;
+      --primary-dark: #17448a;
+      --accent: #f4d03f;
+      --bg: #f5f7fa;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      background: #f5f7fa;
+      background: var(--bg);
       line-height: 1.6;
     }
 
     header {
-      background: #1e5bb8;
+      background: var(--primary);
       color: white;
-      padding: 20px;
+      padding: 24px;
       text-align: center;
     }
 
+    /* ---------- NAV TABS ---------- */
     nav {
       display: flex;
       flex-wrap: wrap;
-      background: #1e5bb8;
+      background: var(--primary);
+      justify-content: center;
     }
 
     nav button {
@@ -34,47 +43,100 @@
       cursor: pointer;
       font-weight: bold;
       font-size: 14px;
+      position: relative;
+      transition: background 0.3s, transform 0.2s;
     }
 
-    nav button:hover,
+    nav button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
     nav button.active {
-      background: #17448a;
+      background: var(--primary-dark);
     }
 
+    nav button.active::after {
+      content: "";
+      position: absolute;
+      left: 20%;
+      right: 20%;
+      bottom: 6px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    /* ---------- CONTENT ---------- */
     .container {
       padding: 30px;
+      max-width: 1100px;
+      margin: auto;
     }
 
     .tab-content {
       display: none;
       background: white;
       padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      animation: fadeSlide 0.5s ease;
     }
 
     .tab-content.active {
       display: block;
     }
 
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     h2 {
-      color: #1e5bb8;
+      color: var(--primary);
+      margin-top: 0;
     }
 
     h3 {
-      background: #f4d03f;
+      background: var(--accent);
       display: inline-block;
-      padding: 6px 10px;
-      border-radius: 4px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin-top: 25px;
     }
 
     ul {
       margin-left: 20px;
     }
 
+    /* ---------- LINK CHIPS ---------- */
     a {
-      color: #1e5bb8;
       text-decoration: none;
+    }
+
+    .link-chip {
+      display: inline-block;
+      margin: 6px 8px 6px 0;
+      padding: 8px 14px;
+      border-radius: 20px;
+      background: #eef3fb;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .link-chip:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(30,91,184,0.3);
     }
 
     footer {
@@ -82,6 +144,7 @@
       padding: 20px;
       background: #eaeaea;
       margin-top: 40px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -99,11 +162,6 @@
   <button class="tablink" onclick="openTab('certifications', this)">Certifications</button>
   <button class="tablink" onclick="openTab('networking', this)">Networking</button>
   <button class="tablink" onclick="openTab('social', this)">Social</button>
-  <button class="tablink" onclick="openTab('workculture', this)">Work Culture</button>
-  <button class="tablink" onclick="openTab('construction', this)">Construction</button>
-  <button class="tablink" onclick="openTab('project', this)">Project Mgmt</button>
-  <button class="tablink" onclick="openTab('driving', this)">Driving</button>
-  <button class="tablink" onclick="openTab('safety', this)">Safety</button>
 </nav>
 
 <div class="container">
@@ -111,136 +169,55 @@
   <!-- JOB SEARCH -->
   <div id="jobsearch" class="tab-content active">
     <h2>Job Search Resources</h2>
-    <h3>Tips</h3>
-    <ul>
-      <li>Many engineering & IT jobs don’t require Finnish, but it helps.</li>
-      <li>Apply via multiple platforms.</li>
-      <li>Keep CV clear and concise.</li>
-      <li>Use employment services and integration programs.</li>
-    </ul>
-
-    <h3>Websites</h3>
-    <ul>
-      <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
-      <li><a href="https://fi.indeed.com" target="_blank">Indeed Finland</a></li>
-      <li><a href="https://tyomarkkinatori.fi" target="_blank">Työmarkkinatori</a></li>
-      <li><a href="https://www.workinfinland.com/en/" target="_blank">Work in Finland</a></li>
-      <li><a href="https://valtiolle.fi/en/" target="_blank">Valtiolle</a></li>
-      <li><a href="https://www.jobly.fi/" target="_blank">Jobly</a></li>
-    </ul>
+    <h3>Websites</h3><br><br>
+    <a class="link-chip" href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+    <a class="link-chip" href="https://fi.indeed.com" target="_blank">Indeed Finland</a>
+    <a class="link-chip" href="https://tyomarkkinatori.fi" target="_blank">Työmarkkinatori</a>
+    <a class="link-chip" href="https://www.workinfinland.com/en/" target="_blank">Work in Finland</a>
+    <a class="link-chip" href="https://valtiolle.fi/en/" target="_blank">Valtiolle</a>
+    <a class="link-chip" href="https://www.jobly.fi/" target="_blank">Jobly</a>
   </div>
 
   <!-- COURSES -->
   <div id="courses" class="tab-content">
     <h2>Finnish Language Courses</h2>
-
-    <h3>Instructor-led</h3>
-    <ul>
-      <li><a href="https://ilmonet.fi/" target="_blank">Ilmonet</a></li>
-      <li><a href="https://finnishcourses.fi/" target="_blank">FinnishCourses.fi</a></li>
-      <li><a href="https://www.kielibuusti.fi/en/learn-finnish" target="_blank">Kielibuusti</a></li>
-    </ul>
-
-    <h3>Self-study</h3>
-    <ul>
-      <li>Duolingo</li>
-      <li>Drops</li>
-      <li>Anki</li>
-      <li>WordDive</li>
-    </ul>
+    <a class="link-chip" href="https://ilmonet.fi/" target="_blank">Ilmonet</a>
+    <a class="link-chip" href="https://finnishcourses.fi/" target="_blank">FinnishCourses</a>
+    <a class="link-chip" href="https://www.kielibuusti.fi/en/learn-finnish" target="_blank">Kielibuusti</a>
   </div>
 
   <!-- CERTIFICATIONS -->
   <div id="certifications" class="tab-content">
-    <h2>Certifications & Qualifications</h2>
-    <p>Some professions require official recognition.</p>
-    <a href="https://www.oph.fi/en/services/recognition-qualifications/regulated-professions-finland" target="_blank">
-      EDUFI – Regulated Professions
-    </a>
-
-    <h3>Project Management</h3>
-    <ul>
-      <li><a href="https://www.pry.fi/en/ipma-certification/" target="_blank">IPMA</a></li>
-      <li><a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank">PMI (PMP / CAPM)</a></li>
-    </ul>
+    <h2>Certifications</h2>
+    <a class="link-chip" href="https://www.pry.fi/en/ipma-certification/" target="_blank">IPMA</a>
+    <a class="link-chip" href="https://www.pmi.org/certifications/project-management-pmp" target="_blank">PMI</a>
   </div>
 
   <!-- NETWORKING -->
   <div id="networking" class="tab-content">
-    <h2>Professional Networking</h2>
-    <ul>
-      <li><a href="https://ihhelsinki.fi/" target="_blank">International House Helsinki</a></li>
-      <li><a href="https://startuprefugees.com/" target="_blank">Startup Refugees</a></li>
-      <li><a href="https://spouseprogram.fi/" target="_blank">Spouse Program Finland</a></li>
-    </ul>
+    <h2>Networking & Support</h2>
+    <a class="link-chip" href="https://ihhelsinki.fi/" target="_blank">International House Helsinki</a>
+    <a class="link-chip" href="https://startuprefugees.com/" target="_blank">Startup Refugees</a>
+    <a class="link-chip" href="https://spouseprogram.fi/" target="_blank">Spouse Program</a>
   </div>
 
   <!-- SOCIAL -->
   <div id="social" class="tab-content">
     <h2>Social & Community</h2>
-    <ul>
-      <li><a href="https://helsinkifriends.fi/" target="_blank">Helsinki Friends</a></li>
-      <li><a href="https://www.facebook.com/groups/GGIHelsinki/" target="_blank">Girl Gone International</a></li>
-      <li><a href="https://www.flowerescue.org/" target="_blank">Flower Rescue</a></li>
-    </ul>
-  </div>
-
-  <!-- WORK CULTURE -->
-  <div id="workculture" class="tab-content">
-    <h2>Work Culture</h2>
-    <p>Punctuality, trust, independence, and clear communication.</p>
-    <ul>
-      <li>Engineers: UIL / ILRY</li>
-      <li>Project Management: IPMA & PMI Finland</li>
-    </ul>
-  </div>
-
-  <!-- CONSTRUCTION -->
-  <div id="construction" class="tab-content">
-    <h2>Construction Jobs</h2>
-    <ul>
-      <li>Occupational Safety Card</li>
-      <li>Hot Work Card</li>
-      <li>First Aid (EA1 / EA2)</li>
-    </ul>
-  </div>
-
-  <!-- PROJECT -->
-  <div id="project" class="tab-content">
-    <h2>Project Management</h2>
-    <p>Widely used in engineering, IT, construction, and energy.</p>
-  </div>
-
-  <!-- DRIVING -->
-  <div id="driving" class="tab-content">
-    <h2>Driving Licence Exchange</h2>
-    <p>Possible depending on country of origin. Check Traficom.</p>
-  </div>
-
-  <!-- SAFETY -->
-  <div id="safety" class="tab-content">
-    <h2>Health & Safety</h2>
-    <ul>
-      <li>Occupational Safety</li>
-      <li>Hot Work</li>
-      <li>Electrical Safety (SFS 6002)</li>
-    </ul>
+    <a class="link-chip" href="https://helsinkifriends.fi/" target="_blank">Helsinki Friends</a>
+    <a class="link-chip" href="https://www.flowerescue.org/" target="_blank">Flower Rescue</a>
   </div>
 
 </div>
 
 <footer>
-  <p>© 2026 – Finland Job Search & Integration Guide</p>
+  © 2026 – Finland Job Search & Integration Guide
 </footer>
 
 <script>
   function openTab(tabId, btn) {
-    const contents = document.querySelectorAll('.tab-content');
-    const buttons = document.querySelectorAll('.tablink');
-
-    contents.forEach(c => c.classList.remove('active'));
-    buttons.forEach(b => b.classList.remove('active'));
-
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.tablink').forEach(b => b.classList.remove('active'));
     document.getElementById(tabId).classList.add('active');
     btn.classList.add('active');
   }
