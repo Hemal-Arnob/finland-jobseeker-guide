@@ -11,6 +11,7 @@
       --primary-dark: #17448a;
       --accent: #f4d03f;
       --bg: #f5f7fa;
+      --card-bg: #ffffff;
     }
 
     body {
@@ -23,26 +24,25 @@
     header {
       background: var(--primary);
       color: white;
-      padding: 24px;
+      padding: 28px;
       text-align: center;
     }
 
-    /* ---------- NAV TABS ---------- */
     nav {
       display: flex;
       flex-wrap: wrap;
-      background: var(--primary);
       justify-content: center;
+      background: var(--primary);
     }
 
     nav button {
       background: none;
       border: none;
       color: white;
-      padding: 14px 18px;
+      padding: 16px 22px;
       cursor: pointer;
       font-weight: bold;
-      font-size: 14px;
+      font-size: 15px;
       position: relative;
       transition: background 0.3s, transform 0.2s;
     }
@@ -59,27 +59,22 @@
     nav button.active::after {
       content: "";
       position: absolute;
-      left: 20%;
-      right: 20%;
+      left: 25%;
+      right: 25%;
       bottom: 6px;
       height: 3px;
       background: var(--accent);
       border-radius: 4px;
     }
 
-    /* ---------- CONTENT ---------- */
     .container {
-      padding: 30px;
-      max-width: 1100px;
+      padding: 40px 20px;
+      max-width: 1200px;
       margin: auto;
     }
 
     .tab-content {
       display: none;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
       animation: fadeSlide 0.5s ease;
     }
 
@@ -88,62 +83,67 @@
     }
 
     @keyframes fadeSlide {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
       color: var(--primary);
       margin-top: 0;
+      margin-bottom: 20px;
     }
 
-    h3 {
-      background: var(--accent);
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 20px;
-      margin-top: 25px;
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
     }
 
-    ul {
-      margin-left: 20px;
-    }
-
-    /* ---------- LINK CHIPS ---------- */
-    a {
+    .link-card {
+      display: block;
+      background: var(--card-bg);
+      padding: 26px;
+      border-radius: 16px;
       text-decoration: none;
-    }
-
-    .link-chip {
-      display: inline-block;
-      margin: 6px 8px 6px 0;
-      padding: 8px 14px;
-      border-radius: 20px;
-      background: #eef3fb;
       color: var(--primary);
-      font-weight: bold;
-      font-size: 14px;
-      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .link-chip:hover {
+    .link-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
       background: var(--primary);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 16px rgba(30,91,184,0.3);
+    }
+
+    .link-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(30,91,184,0.25);
+      background: #f0f5ff;
+    }
+
+    .link-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .link-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #555;
     }
 
     footer {
       text-align: center;
       padding: 20px;
       background: #eaeaea;
-      margin-top: 40px;
+      margin-top: 50px;
       font-size: 14px;
     }
   </style>
@@ -168,44 +168,117 @@
 
   <!-- JOB SEARCH -->
   <div id="jobsearch" class="tab-content active">
-    <h2>Job Search Resources</h2>
-    <h3>Websites</h3><br><br>
-    <a class="link-chip" href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-    <a class="link-chip" href="https://fi.indeed.com" target="_blank">Indeed Finland</a>
-    <a class="link-chip" href="https://tyomarkkinatori.fi" target="_blank">Työmarkkinatori</a>
-    <a class="link-chip" href="https://www.workinfinland.com/en/" target="_blank">Work in Finland</a>
-    <a class="link-chip" href="https://valtiolle.fi/en/" target="_blank">Valtiolle</a>
-    <a class="link-chip" href="https://www.jobly.fi/" target="_blank">Jobly</a>
+    <h2>Job Search Platforms</h2>
+    <div class="card-grid">
+      <a class="link-card" href="https://www.linkedin.com" target="_blank">
+        <h3>LinkedIn</h3>
+        <p>Professional networking & job listings</p>
+        <p>Connect with recruiters, follow Finnish companies, and find jobs in IT, engineering, and management roles.</p>
+      </a>
+      <a class="link-card" href="https://fi.indeed.com" target="_blank">
+        <h3>Indeed Finland</h3>
+        <p>Jobs across all industries</p>
+        <p>Aggregate of job postings from Finnish companies, suitable for both Finnish and English-speaking applicants.</p>
+      </a>
+      <a class="link-card" href="https://tyomarkkinatori.fi" target="_blank">
+        <h3>Työmarkkinatori</h3>
+        <p>National employment service</p>
+        <p>Official government platform offering guidance, job listings, and integration support for newcomers.</p>
+      </a>
+      <a class="link-card" href="https://www.workinfinland.com/en/" target="_blank">
+        <h3>Work in Finland</h3>
+        <p>English-friendly roles</p>
+        <p>Official portal for international professionals, with IT, engineering, and healthcare vacancies in English.</p>
+      </a>
+      <a class="link-card" href="https://valtiolle.fi/en/" target="_blank">
+        <h3>Valtiolle</h3>
+        <p>Government sector jobs</p>
+        <p>Search for positions in public administration and government agencies across Finland.</p>
+      </a>
+      <a class="link-card" href="https://www.jobly.fi/" target="_blank">
+        <h3>Jobly</h3>
+        <p>Finnish job portal</p>
+        <p>Private sector listings for professional and technical roles, some in English.</p>
+      </a>
+    </div>
   </div>
 
   <!-- COURSES -->
   <div id="courses" class="tab-content">
-    <h2>Finnish Language Courses</h2>
-    <a class="link-chip" href="https://ilmonet.fi/" target="_blank">Ilmonet</a>
-    <a class="link-chip" href="https://finnishcourses.fi/" target="_blank">FinnishCourses</a>
-    <a class="link-chip" href="https://www.kielibuusti.fi/en/learn-finnish" target="_blank">Kielibuusti</a>
+    <h2>Finnish Language Learning</h2>
+    <div class="card-grid">
+      <a class="link-card" href="https://ilmonet.fi/" target="_blank">
+        <h3>Ilmonet</h3>
+        <p>Local adult education courses</p>
+        <p>Search and enroll in beginner to advanced Finnish courses at adult education centers across Finland.</p>
+      </a>
+      <a class="link-card" href="https://finnishcourses.fi/" target="_blank">
+        <h3>FinnishCourses.fi</h3>
+        <p>Nationwide course search</p>
+        <p>Comprehensive platform to find Finnish language courses for adults in multiple cities.</p>
+      </a>
+      <a class="link-card" href="https://www.kielibuusti.fi/en/learn-finnish" target="_blank">
+        <h3>Kielibuusti</h3>
+        <p>Free learning support</p>
+        <p>Interactive online learning materials and exercises to improve Finnish language skills quickly.</p>
+      </a>
+    </div>
   </div>
 
   <!-- CERTIFICATIONS -->
   <div id="certifications" class="tab-content">
     <h2>Certifications</h2>
-    <a class="link-chip" href="https://www.pry.fi/en/ipma-certification/" target="_blank">IPMA</a>
-    <a class="link-chip" href="https://www.pmi.org/certifications/project-management-pmp" target="_blank">PMI</a>
+    <div class="card-grid">
+      <a class="link-card" href="https://www.pry.fi/en/ipma-certification/" target="_blank">
+        <h3>IPMA</h3>
+        <p>Project management certification</p>
+        <p>IPMA certification is recognized in Finland for project managers in engineering and IT sectors.</p>
+      </a>
+      <a class="link-card" href="https://www.pmi.org/certifications/project-management-pmp" target="_blank">
+        <h3>PMI</h3>
+        <p>PMP & CAPM credentials</p>
+        <p>Globally recognized project management certifications that strengthen your professional profile in Finland.</p>
+      </a>
+    </div>
   </div>
 
   <!-- NETWORKING -->
   <div id="networking" class="tab-content">
     <h2>Networking & Support</h2>
-    <a class="link-chip" href="https://ihhelsinki.fi/" target="_blank">International House Helsinki</a>
-    <a class="link-chip" href="https://startuprefugees.com/" target="_blank">Startup Refugees</a>
-    <a class="link-chip" href="https://spouseprogram.fi/" target="_blank">Spouse Program</a>
+    <div class="card-grid">
+      <a class="link-card" href="https://ihhelsinki.fi/" target="_blank">
+        <h3>International House Helsinki</h3>
+        <p>Integration & career services</p>
+        <p>Support for newcomers with career guidance, networking events, and mentorship programs.</p>
+      </a>
+      <a class="link-card" href="https://startuprefugees.com/" target="_blank">
+        <h3>Startup Refugees</h3>
+        <p>Mentoring & employment support</p>
+        <p>Connects international professionals with Finnish startups for job opportunities and coaching.</p>
+      </a>
+      <a class="link-card" href="https://spouseprogram.fi/" target="_blank">
+        <h3>Spouse Program Finland</h3>
+        <p>Career support for partners</p>
+        <p>Helps partners of international employees with career counseling, job search, and training.</p>
+      </a>
+    </div>
   </div>
 
   <!-- SOCIAL -->
   <div id="social" class="tab-content">
     <h2>Social & Community</h2>
-    <a class="link-chip" href="https://helsinkifriends.fi/" target="_blank">Helsinki Friends</a>
-    <a class="link-chip" href="https://www.flowerescue.org/" target="_blank">Flower Rescue</a>
+    <div class="card-grid">
+      <a class="link-card" href="https://helsinkifriends.fi/" target="_blank">
+        <h3>Helsinki Friends</h3>
+        <p>Meet people & make friends</p>
+        <p>Community for socializing, cultural events, and meeting other internationals in Helsinki.</p>
+      </a>
+      <a class="link-card" href="https://www.flowerescue.org/" target="_blank">
+        <h3>Flower Rescue</h3>
+        <p>Volunteering opportunities</p>
+        <p>Volunteer for environmental and social causes while connecting with the community.</p>
+      </a>
+    </div>
   </div>
 
 </div>
