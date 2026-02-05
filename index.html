@@ -10,16 +10,16 @@
       --primary: #002F6C;
       --primary-dark: #001F49;
       --accent: #f4d03f;
-      --bg: #f5f7fa;
-      --card-bg: #ffffff;
+      --bg-gradient: linear-gradient(180deg, #f5f7fa, #eef2f7);
+      --card-gradient: linear-gradient(145deg, #ffffff, #f2f6ff);
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      background: var(--bg);
+      background: var(--bg-gradient);
       line-height: 1.6;
-      transition: background 0.5s ease;
+      color: #222;
     }
 
     /* Header */
@@ -31,28 +31,22 @@
     }
 
     header h1 {
-      margin-bottom: 16px;
-      transition: transform 0.3s ease;
-    }
-
-    header h1:hover {
-      transform: scale(1.05);
+      margin-bottom: 14px;
     }
 
     header p {
       max-width: 900px;
       margin: auto;
       font-size: 1.1rem;
-      line-height: 1.6;
       opacity: 0.95;
     }
 
-    /* Navigation Tabs */
+    /* Navigation */
     nav {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      background: var(--primary);
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       position: sticky;
       top: 0;
       z-index: 100;
@@ -63,46 +57,33 @@
       text-decoration: none;
       font-weight: bold;
       padding: 16px 22px;
-      transition: background 0.3s, color 0.3s;
+      transition: background 0.3s ease, color 0.3s ease;
       cursor: pointer;
     }
 
     nav a:hover {
-      background: var(--primary-dark);
-      color: var(--accent);
+      background: rgba(255,255,255,0.12);
     }
 
     nav a.active {
-      background: var(--primary-dark);
+      background: rgba(255,255,255,0.18);
       border-bottom: 3px solid var(--accent);
     }
 
-    /* Container */
+    /* Layout */
     .container {
       max-width: 1200px;
       margin: auto;
       padding: 40px 20px;
     }
 
-    /* Tab Content */
     .tab-content {
       display: none;
-      animation: fadeSlide 0.5s ease;
-      background: linear-gradient(180deg, #f0f5ff, #ffffff);
-      border-radius: 20px;
-      padding: 30px 20px;
-      margin-bottom: 40px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .tab-content:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+      animation: fadeSlide 0.45s ease;
     }
 
     @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -111,22 +92,27 @@
       margin-bottom: 20px;
     }
 
+    h3 {
+      color: var(--primary-dark);
+    }
+
     /* Cards */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 22px;
+      margin-top: 20px;
     }
 
     .link-card {
       display: block;
-      background: linear-gradient(135deg, #ffffff, #e0f0ff);
+      background: var(--card-gradient);
       padding: 26px;
       border-radius: 16px;
       text-decoration: none;
       color: var(--primary);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
       position: relative;
       overflow: hidden;
     }
@@ -134,27 +120,19 @@
     .link-card::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 6px;
-      height: 100%;
-      background: var(--primary);
-      transition: background 0.3s;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(0,47,108,0.08), transparent);
+      opacity: 0;
+      transition: opacity 0.35s ease;
     }
 
     .link-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.2);
-      background: linear-gradient(135deg, #f0f5ff, #d0e6ff);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
     }
 
-    .link-card h3 {
-      margin: 0 0 8px;
-      transition: color 0.3s;
-    }
-
-    .link-card:hover h3 {
-      color: var(--accent);
+    .link-card:hover::before {
+      opacity: 1;
     }
 
     .link-card p {
@@ -163,47 +141,31 @@
       color: #555;
     }
 
-    /* Tips / Info boxes */
+    /* Tips */
     .tips {
       margin-top: 30px;
-      background: linear-gradient(135deg, #f0f8ff, #ffffff);
+      background: linear-gradient(145deg, #eef3ff, #f7f9ff);
       border-left: 6px solid var(--primary);
-      padding: 20px;
-      border-radius: 12px;
+      padding: 22px;
+      border-radius: 14px;
       font-size: 14px;
-      color: #333;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .tips:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
 
     .tips h3 {
       margin-top: 0;
-      margin-bottom: 12px;
-      color: var(--primary);
-    }
-
-    .tips ul {
-      margin: 0;
-      padding-left: 20px;
     }
 
     .tips li {
-      margin-bottom: 10px;
-      line-height: 1.5;
+      margin-bottom: 8px;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: linear-gradient(135deg, #e0f0ff, #ffffff);
+      background: #eaeaea;
       margin-top: 50px;
       font-size: 14px;
     }
-
   </style>
 </head>
 
@@ -211,9 +173,7 @@
 
 <header>
   <h1>Job Search & Integration Resources – Finland</h1>
-  <p>
-   Guiding International Professionals Forward – From Arrival to Achievement.
-  </p>
+  <p>Guiding International Professionals Forward – From Arrival to Achievement.</p>
 </header>
 
 <nav>
@@ -226,97 +186,57 @@
 
 <div class="container">
 
-  <!-- Intro -->
-  <div id="intro" class="tab-content" style="display: block;">
+  <!-- HOME -->
+  <div id="intro" class="tab-content" style="display:block;">
     <p>
-    Our website is designed to support all personnel arriving in Finland, as well as highly educated international professionals who are living in Finland.
-    Here, you can find clear, practical, and up-to-date information to help you understand the Finnish job market
-    and navigate your job search with confidence. Whether you are just arriving in Finland or already building your
-    career here, this platform brings together the key resources you need in one place.
+      Our website is designed to support all personnel arriving in Finland, as well as highly educated international
+      professionals who are living in Finland. Here, you can find clear, practical, and up-to-date information to help
+      you understand the Finnish job market and navigate your job search with confidence.
     </p>
   </div>
 
   <!-- JOB SEARCH -->
   <div id="jobsearch" class="tab-content">
     <h2>Job Search Platforms</h2>
-    <p>
-      Navigating the Finnish job market is easier when you know the key platforms to explore. These websites connect
-      international professionals and newcomers with opportunities across industries, providing guidance and job listings
-      in both Finnish and English. Here are some of the main portals to help you get started:
-    </p>
     <div class="card-grid">
-      <a class="link-card" href="https://www.linkedin.com" target="_blank">
-        <h3>LinkedIn</h3>
-        <p>Professional networking & job listings</p>
-      </a>
-      <a class="link-card" href="https://fi.indeed.com" target="_blank">
-        <h3>Indeed Finland</h3>
-        <p>Jobs across all industries</p>
-      </a>
-      <a class="link-card" href="https://tyomarkkinatori.fi" target="_blank">
-        <h3>Työmarkkinatori</h3>
-        <p>National employment service</p>
-      </a>
-      <a class="link-card" href="https://www.workinfinland.com/en/" target="_blank">
-        <h3>Work in Finland</h3>
-        <p>English-friendly roles for international professionals</p>
-      </a>
-      <a class="link-card" href="https://valtiolle.fi/en/" target="_blank">
-        <h3>Valtiolle</h3>
-        <p>Government and public administration jobs</p>
-      </a>
-      <a class="link-card" href="https://www.jobly.fi/" target="_blank">
-        <h3>Jobly</h3>
-        <p>Private sector listings for professional and technical roles</p>
-      </a>
-      <a class="link-card" href="https://www.duunitori.fi/" target="_blank">
-        <h3>Duunitori</h3>
-        <p>One of Finland's largest job boards with easy search and application tools</p>
-      </a>
-    </div>
-
-    <div class="tips">
-      <h3>Job Search Tips:</h3>
-      <ul>
-        <li>Many Tech, Engineering, and IT jobs in Finland do not require Finnish, but Finnish language skills are always an advantage.</li>
-        <li>Learning basic Finnish can improve your job opportunities and help you at work and in daily life.</li>
-        <li>Apply through multiple websites to maximize your chances.</li>
-        <li>Keep your CV simple and clear, highlighting your key skills.</li>
-        <li>Ask employment services or integration programs for help when needed.</li>
-      </ul>
+      <a class="link-card" href="https://www.linkedin.com" target="_blank"><h3>LinkedIn</h3><p>Professional networking & job listings</p></a>
+      <a class="link-card" href="https://fi.indeed.com" target="_blank"><h3>Indeed Finland</h3><p>Jobs across all industries</p></a>
+      <a class="link-card" href="https://tyomarkkinatori.fi" target="_blank"><h3>Työmarkkinatori</h3><p>National employment service</p></a>
+      <a class="link-card" href="https://www.workinfinland.com/en/" target="_blank"><h3>Work in Finland</h3><p>English-friendly roles</p></a>
+      <a class="link-card" href="https://valtiolle.fi/en/" target="_blank"><h3>Valtiolle</h3><p>Government & public jobs</p></a>
+      <a class="link-card" href="https://www.jobly.fi/" target="_blank"><h3>Jobly</h3><p>Private sector roles</p></a>
+      <a class="link-card" href="https://www.duunitori.fi/" target="_blank"><h3>Duunitori</h3><p>One of Finland’s largest job boards</p></a>
     </div>
   </div>
 
-  <!-- FINNISH COURSES -->
+  <!-- COURSES -->
   <div id="courses" class="tab-content">
     <h2>Finnish Language Learning</h2>
-    <p>
-      Explore a wide range of free, low-cost, and paid Finnish language courses across Finland, both in-person and online. 
-      Whether you are a beginner or want to improve your Finnish skills, these courses are structured to help you succeed.
-    </p>
-    <!-- Cards remain the same -->
+    <div class="card-grid">
+      <a class="link-card" href="https://learnfinnish.org/" target="_blank"><h3>Learn Finnish Online</h3><p>Interactive free lessons</p></a>
+      <a class="link-card" href="https://finnishcourses.fi/fi" target="_blank"><h3>Finnishcourses.fi</h3><p>Course search portal</p></a>
+      <a class="link-card" href="https://www.helsinki.fi/" target="_blank"><h3>University Open Courses</h3><p>Academic Finnish courses</p></a>
+    </div>
   </div>
 
   <!-- CERTIFICATIONS -->
   <div id="certifications" class="tab-content">
-    <h2>Job Qualification Cards & Certificates</h2>
-    <p>
-      In Finland, many jobs require official certificates or qualification cards showing you have completed training and passed a test for a specific skill or safety requirement. 
-      These are often mandatory in sectors like construction, logistics, transport, industry, hospitality, and technical services. 
-      Below you can find the most common certifications, with official links for training and registration.
-    </p>
-    <!-- Cards remain the same -->
+    <h2>Job Qualification Cards</h2>
+    <div class="card-grid">
+      <a class="link-card" href="https://hygienepassport.fi/" target="_blank"><h3>Hygiene Passport</h3><p>Food handling certificate</p></a>
+      <a class="link-card" href="https://tyoturvallisuuskortti.fi/" target="_blank"><h3>Occupational Safety Card</h3><p>Workplace safety</p></a>
+      <a class="link-card" href="https://viisipaivaa.fi/korttikoulutukset/" target="_blank"><h3>Fire Safety</h3><p>Basic fire extinguishing</p></a>
+    </div>
   </div>
 
-  <!-- NETWORKING & SOCIAL -->
+  <!-- NETWORKING -->
   <div id="networking-social" class="tab-content">
     <h2>Networking & Social</h2>
-    <p>
-      Building a professional network and social connections in Finland is key to career growth and integration. 
-      This section brings together organizations, programs, and community opportunities to help international professionals
-      connect with mentors, peers, employers, and local communities.
-    </p>
-    <!-- Cards remain the same -->
+    <div class="card-grid">
+      <a class="link-card" href="https://ihhelsinki.fi/" target="_blank"><h3>International House Helsinki</h3><p>Integration & career support</p></a>
+      <a class="link-card" href="https://startuprefugees.com/" target="_blank"><h3>Startup Refugees</h3><p>Mentoring & employment</p></a>
+      <a class="link-card" href="https://helsinkifriends.fi/" target="_blank"><h3>Helsinki Friends</h3><p>Meet people & make friends</p></a>
+    </div>
   </div>
 
 </div>
@@ -327,14 +247,12 @@
 
 <script>
   function showTab(tabId, btn) {
-    const tabs = document.querySelectorAll('.tab-content');
-    tabs.forEach(tab => tab.style.display = 'none');
+    document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
     document.getElementById(tabId).style.display = 'block';
     document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-    if (btn) btn.classList.add('active');
+    btn.classList.add('active');
   }
 </script>
 
 </body>
 </html>
-
