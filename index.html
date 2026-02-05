@@ -1,134 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Finland Job Search & Integration Guide</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Search & Integration Resources – Finland</title>
 
-<style>
-:root {
-  --primary: #002f6c;
-  --primary-dark: #001f49;
-  --bg: #f5f7fa;
-  --card-bg: #ffffff;
-}
+  <style>
+    :root {
+      --primary: #002F6C; /* updated blue */
+      --primary-dark: #001F49;
+      --accent: #f4d03f;
+      --bg: #f5f7fa;
+      --card-bg: #ffffff;
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg);
-  line-height: 1.6;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      line-height: 1.6;
+    }
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #002f6c, #004a9f);
-  color: white;
-  padding: 50px 20px;
-  text-align: center;
-}
+    /* Header */
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
 
-header h1 {
-  margin-bottom: 12px;
-}
+    header h1 {
+      margin-bottom: 16px;
+    }
 
-/* Navigation */
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  background: var(--primary);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+    header p {
+      max-width: 900px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
 
-nav a {
-  color: white;
-  padding: 16px 22px;
-  cursor: pointer;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
+    /* Navigation Tabs */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-nav a:hover {
-  background: var(--primary-dark);
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 16px 22px;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
 
-nav a.active {
-  background: var(--primary-dark);
-}
+    nav a:hover {
+      background: var(--primary-dark);
+    }
 
-/* Layout */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 40px 20px;
-}
+    nav a.active {
+      background: var(--primary-dark);
+      border-bottom: 3px solid var(--accent);
+    }
 
-.tab-content {
-  display: none;
-  animation: fade 0.4s ease;
-}
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-@keyframes fade {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    /* Tab Content */
+    .tab-content {
+      display: none;
+      animation: fadeSlide 0.4s ease;
+    }
 
-h2 {
-  color: var(--primary);
-  margin-bottom: 20px;
-}
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* Cards */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 22px;
-}
+    h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
 
-.link-card {
-  background: linear-gradient(135deg, #ffffff, #f0f4ff);
-  padding: 26px;
-  border-radius: 16px;
-  text-decoration: none;
-  color: var(--primary);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
 
-.link-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.2);
-}
+    .link-card {
+      display: block;
+      background: var(--card-bg);
+      padding: 26px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: var(--primary);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-.link-card h3 {
-  margin-top: 0;
-}
+    .link-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: var(--primary);
+    }
 
-.link-card p {
-  margin-bottom: 0;
-  font-size: 14px;
-  color: #444;
-}
+    .link-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+      background: #f0f5ff;
+    }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #eaeaea;
-  margin-top: 40px;
-  font-size: 14px;
-}
-</style>
+    .link-card h3 {
+      margin: 0 0 8px;
+    }
+
+    .link-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Tips / Info boxes */
+    .tips {
+      margin-top: 30px;
+      background: #f0f5ff;
+      border-left: 6px solid var(--primary);
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .tips h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .tips ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .tips li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eaeaea;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
   <h1>Job Search & Integration Resources – Finland</h1>
-  <p>Supporting international professionals from arrival to employment.</p>
+  <p>
+   Guiding International Professionals Forward- From Arrival to Achievement.
+  </p>
 </header>
 
 <nav>
@@ -141,117 +195,263 @@ footer {
 
 <div class="container">
 
-<!-- HOME -->
-<div id="intro" class="tab-content" style="display:block;">
-  <p>
-    This website is designed to support people arriving in Finland as well as highly educated
-    international professionals already living here. It brings together key resources to help
-    you understand the Finnish job market, required skills, certifications, and networking opportunities.
-  </p>
-</div>
-
-<!-- JOB SEARCH -->
-<div id="jobsearch" class="tab-content">
-  <h2>Job Search Platforms</h2>
-
-  <div class="card-grid">
-    <a class="link-card" href="https://tyomarkkinatori.fi" target="_blank">
-      <h3>Työmarkkinatori</h3>
-      <p>Official Finnish employment platform.</p>
-    </a>
-
-    <a class="link-card" href="https://www.linkedin.com/jobs" target="_blank">
-      <h3>LinkedIn Jobs</h3>
-      <p>Professional networking and job listings.</p>
-    </a>
-
-    <a class="link-card" href="https://www.glassdoor.com" target="_blank">
-      <h3>Glassdoor</h3>
-      <p>Company reviews and job listings.</p>
-    </a>
-
-    <a class="link-card" href="https://thehub.io" target="_blank">
-      <h3>The Hub</h3>
-      <p>Startup and scale-up jobs in the Nordics.</p>
-    </a>
+  <!-- Intro -->
+  <div id="intro" class="tab-content" style="display: block;">
+    <p>
+    Our website is designed to support all personnel arriving in Finland, as well as highly educated international professionals who are living in Finland.
+    Here, you can find clear, practical, and up-to-date information to help you understand the Finnish job market
+    and navigate your job search with confidence. Whether you are just arriving in Finland or already building your
+    career here, this platform brings together the key resources you need in one place.
+    </p>
   </div>
-</div>
 
-<!-- FINNISH COURSES -->
-<div id="courses" class="tab-content">
-  <h2>Finnish Language Courses</h2>
+  <!-- JOB SEARCH -->
+  <div id="jobsearch" class="tab-content">
+    <h2>Job Search Platforms</h2>
+    <p>
+      Navigating the Finnish job market is easier when you know the key platforms to explore. These websites connect
+      international professionals and newcomers with opportunities across industries, providing guidance and job listings
+      in both Finnish and English. Here are some of the main portals to help you get started:
+    </p>
+    <div class="card-grid">
+      <a class="link-card" href="https://www.linkedin.com" target="_blank">
+        <h3>LinkedIn</h3>
+        <p>Professional networking & job listings</p>
+      </a>
+      <a class="link-card" href="https://fi.indeed.com" target="_blank">
+        <h3>Indeed Finland</h3>
+        <p>Jobs across all industries</p>
+      </a>
+      <a class="link-card" href="https://tyomarkkinatori.fi" target="_blank">
+        <h3>Työmarkkinatori</h3>
+        <p>National employment service</p>
+      </a>
+      <a class="link-card" href="https://www.workinfinland.com/en/" target="_blank">
+        <h3>Work in Finland</h3>
+        <p>English-friendly roles for international professionals</p>
+      </a>
+      <a class="link-card" href="https://valtiolle.fi/en/" target="_blank">
+        <h3>Valtiolle</h3>
+        <p>Government and public administration jobs</p>
+      </a>
+      <a class="link-card" href="https://www.jobly.fi/" target="_blank">
+        <h3>Jobly</h3>
+        <p>Private sector listings for professional and technical roles</p>
+      </a>
+      <a class="link-card" href="https://www.duunitori.fi/" target="_blank">
+        <h3>Duunitori</h3>
+        <p>One of Finland's largest job boards with easy search and application tools</p>
+      </a>
+    </div>
 
-  <div class="card-grid">
-    <a class="link-card" href="https://finnishcourses.fi" target="_blank">
-      <h3>Finnishcourses.fi</h3>
-      <p>Official listing of Finnish language courses.</p>
-    </a>
+    <!-- Job Search Tips -->
+    <div class="tips">
+      <h3>Job Search Tips:</h3>
+      <ul>
+        <li>Many Tech, Engineering, and IT jobs in Finland do not require Finnish, but Finnish language skills are always an advantage.</li>
+        <li>Learning basic Finnish can improve your job opportunities and help you at work and in daily life.</li>
+        <li>Apply through multiple websites to maximize your chances.</li>
+        <li>Keep your CV simple and clear, highlighting your key skills.</li>
+        <li>Ask employment services or integration programs for help when needed.</li>
+      </ul>
+    </div>
 
-    <a class="link-card" href="https://ilmonet.fi" target="_blank">
-      <h3>Ilmonet</h3>
-      <p>Adult education courses across Finland.</p>
-    </a>
-
-    <a class="link-card" href="https://www.duolingo.com" target="_blank">
-      <h3>Duolingo</h3>
-      <p>Basic Finnish learning online.</p>
-    </a>
   </div>
-</div>
 
-<!-- CERTIFICATIONS -->
-<div id="certifications" class="tab-content">
-  <h2>Work Safety & Professional Certifications</h2>
+  <!-- FINNISH COURSES -->
+  <div id="courses" class="tab-content">
+    <h2>Finnish Language Learning</h2>
+    <p>
+      Explore a wide range of free, low-cost, and paid Finnish language courses across Finland, both in-person and online. 
+      Whether you are a beginner or want to improve your Finnish skills, these courses are structured to help you succeed.
+    </p>
 
-  <div class="card-grid">
-    <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
-      <h3>Occupational Safety Card</h3>
-      <p>Mandatory safety training for many jobs.</p>
-    </a>
+    <h3>Free or Low-Cost Courses</h3>
+    <div class="card-grid">
+      <a class="link-card" href="https://aikuisopisto.vantaa.fi/en/finnish-language-startti-courses" target="_blank">
+        <h3>Startti Courses – Vantaa Adult Education Centre</h3>
+        <p>Free Finnish Startti courses for immigrants and residents in Vantaa. Includes online options and Suomi Express courses for beginners and advanced learners.</p>
+      </a>
+      <a class="link-card" href="https://www.internationaljoensuu.fi/en/finnish-language-courses" target="_blank">
+        <h3>Finnish Language Courses – International House Joensuu</h3>
+        <p>Free courses for all levels in Joensuu. Registration via email. Beginners to advanced classes free of charge.</p>
+      </a>
+      <a class="link-card" href="https://www.puijola.net/en/finnish-language-lessons" target="_blank">
+        <h3>Open Finnish Lessons – Setlementti Puijola</h3>
+        <p>Free Finnish classes and study groups; open to everyone, no registration needed (space permitting).</p>
+      </a>
+      <a class="link-card" href="https://www.kpedu.fi/hakijalle/hakeutuminen-koulutukseen/mit%C3%A4-voit-opiskella-kpedussa/suomen-kielen-kurssit" target="_blank">
+        <h3>Keski-Pohjanmaan Kansanopisto Finnish Courses</h3>
+        <p>Free beginner to intermediate courses in Central Ostrobothnia. Includes course materials, bus, and lunch for participants.</p>
+      </a>
+      <a class="link-card" href="https://www.livelingua.com/courses/finnish" target="_blank">
+        <h3>Live Lingua – Free Finnish Courses</h3>
+        <p>Free online lessons with ebooks and audio resources for self-paced learning.</p>
+      </a>
+      <a class="link-card" href="https://learnfinnish.org/" target="_blank">
+        <h3>Learn Finnish Online – LearnFinnish.org</h3>
+        <p>Interactive online lessons covering vocabulary, grammar, and culture. Free with optional paid materials.</p>
+      </a>
+    </div>
 
-    <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
-      <h3>Forklift Safety Card</h3>
-      <p>Required for warehouse and logistics work.</p>
-    </a>
+    <h3>Paid and Structured Courses</h3>
+    <div class="card-grid">
+      <a class="link-card" href="https://finnishcourses.fi/fi" target="_blank">
+        <h3>Finnish Courses Finder – Finnishcourses.fi</h3>
+        <p>Course search portal listing Finnish classes across Finland. Filter by location, level, and price.</p>
+      </a>
+      <a class="link-card" href="https://gimara.fi/suomionline/" target="_blank">
+        <h3>Finnish Online Courses – Gimara</h3>
+        <p>Structured online classes (A2–B1) with assignments and regular schedule. Paid course.</p>
+      </a>
+      <a class="link-card" href="https://finnishlessons.fi/" target="_blank">
+        <h3>Finnish Lessons with Native Teacher</h3>
+        <p>Private and small-group lessons online with a professional teacher. Fee per package.</p>
+      </a>
+      <a class="link-card" href="https://www.lingvocenterfinland.com/language-courses" target="_blank">
+        <h3>Lingvo Center Finland Language Courses</h3>
+        <p>Group or online structured courses, paid. Includes online courses like “Suomi tutuksi”.</p>
+      </a>
+      <a class="link-card" href="https://www.helsinki.fi/fi/hakeminen-ja-opetus/avoin-yliopisto/avoimet-opinnot-koulutusohjelmittain/kotimaisten-kielten-ja-kirjallisuuksien-opinnot/suomi-vieraana-kielenä" target="_blank">
+        <h3>University Open Courses – University of Helsinki</h3>
+        <p>Open university Finnish courses from basic to intermediate. Tuition waivers may apply for certain resident groups.</p>
+      </a>
+      <a class="link-card" href="https://www.kielibuusti.fi/fi/opi-suomea/itseopiskelumateriaalit-ja-kurssit/etsi-suomen-kursseja" target="_blank">
+        <h3>Kielibuusti Finnish Course Search & Info</h3>
+        <p>Guide to Finnish courses in Finland, both local and online.</p>
+      </a>
+    </div>
 
-    <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
-      <h3>Electric Work Safety (SFS 6002)</h3>
-      <p>Electrical safety certification.</p>
-    </a>
-
-    <a class="link-card" href="https://viisipaivaa.fi/korttikoulutukset/" target="_blank">
-      <h3>Fire Safety & Extinguishing</h3>
-      <p>Basic fire safety training.</p>
-    </a>
   </div>
-</div>
 
-<!-- NETWORKING -->
-<div id="networking-social" class="tab-content">
-  <h2>Networking & Social Support</h2>
+  <!-- CERTIFICATIONS -->
+  <div id="certifications" class="tab-content">
+    <h2>Job Qualification Cards & Certificates</h2>
+    <p>
+      In Finland, many jobs require official certificates or qualification cards showing you have completed training and passed a test for a specific skill or safety requirement. 
+      These are often mandatory in sectors like construction, logistics, transport, industry, hospitality, and technical services. 
+      Below you can find the most common certifications, with official links for training and registration.
+    </p>
 
-  <div class="card-grid">
-    <a class="link-card" href="https://ihhelsinki.fi" target="_blank">
-      <h3>International House Helsinki</h3>
-      <p>Integration and career services.</p>
-    </a>
+    <div class="tips">
+      <h3>Key Information about Job Certificates:</h3>
+      <ul>
+        <li>Also called Passports / Cards / Certificates, they officially prove competence in certain areas (safety, hygiene, equipment use).</li>
+        <li>Employers often require them before hiring, especially in hospitality, construction, logistics, and health-sensitive work.</li>
+        <li>Some certificates are valid permanently; others need renewal through refresher courses.</li>
+        <li>Training usually takes a few hours up to a day, followed by an official exam.</li>
+      </ul>
+    </div>
 
-    <a class="link-card" href="https://startuprefugees.com" target="_blank">
-      <h3>Startup Refugees</h3>
-      <p>Mentoring and employment support.</p>
-    </a>
+    <h3>Common Job Qualification Cards in Finland</h3>
+    <div class="card-grid">
+      <a class="link-card" href="https://hygienepassport.fi/hygieniapassitesti" target="_blank">
+        <h3>Hygiene Passport (Hygieniapassi)</h3>
+        <p>Official certificate for handling perishable food in kitchens, cafés, restaurants, and food stores.</p>
+      </a>
+      <a class="link-card" href="https://alcoholpassport.fi/fi" target="_blank">
+        <h3>Alcohol Serving Passport (Anniskelupassi)</h3>
+        <p>Mandatory for serving alcohol in licensed places. Learn laws and take a test.</p>
+      </a>
+      <a class="link-card" href="https://tyoturvallisuuskortti.fi/" target="_blank">
+        <h3>Occupational Safety Card (Työturvallisuuskortti)</h3>
+        <p>One-day course and exam. Valid for 5 years. Required for construction, industrial, and many workplaces.</p>
+      </a>
+      <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
+        <h3>First Aid Certificate (Ensiapukortti / EA-card)</h3>
+        <p>Shows completion of basic first aid and CPR training, useful for workplaces including schools, offices, and construction.</p>
+      </a>
+      <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
+        <h3>Hot Work Card (Tulityökortti)</h3>
+        <p>Required for jobs involving fire, sparks, heat, or welding. Covers safe hot work practices.</p>
+      </a>
+      <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
+        <h3>Forklift Safety Card (Trukkikortti)</h3>
+        <p>Shows safe forklift operation. Needed in warehouses and logistics.</p>
+      </a>
+      <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
+        <h3>Water Work Card (Vesityökortti)</h3>
+        <p>For plumbing and water maintenance jobs to prove safety and hygiene competence.</p>
+      </a>
+      <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
+        <h3>Road Safety Card (Tieturvakortti)</h3>
+        <p>Shows competence in traffic safety at work sites, especially in road construction.</p>
+      </a>
+      <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
+        <h3>Security Guard Card (Järjestyksenvalvojakortti)</h3>
+        <p>Required for security work. Covers law enforcement basics and safety.</p>
+      </a>
+      <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
+        <h3>Electric Work Safety Card (SFS 6002)</h3>
+        <p>Official training in electrical safety for workplaces involving electrical work.</p>
+      </a>
+      <a class="link-card" href="https://viisipaivaa.fi/korttikoulutukset/" target="_blank">
+        <h3>Work at Height / High Places Safety Card (Tieturva 1 & 2)</h3>
+        <p>Covers safe practices for work at height and near traffic sites. Widely used in construction and roadwork.</p>
+      </a>
+      <a class="link-card" href="https://viisipaivaa.fi/korttikoulutukset/" target="_blank">
+        <h3>Personnel Lift / Elevated Work Platform Card (Henkilönostinkortti)</h3>
+        <p>Training for safe use of lifts and elevated platforms in construction, maintenance, and warehouses.</p>
+      </a>
+      <a class="link-card" href="https://viisipaivaa.fi/korttikoulutukset/" target="_blank">
+        <h3>Fire Safety / Fire Extinguishing (Alkusammutus & AS1)</h3>
+        <p>Short courses on basic fire safety and extinguisher use, often required by employers.</p>
+      </a>
+      <a class="link-card" href="https://takk.fi/en/for-companies/tests-and-certificates" target="_blank">
+        <h3>Heavy Vehicle / Driver Professional Qualification (ADR / Brake / Transport)</h3>
+        <p>Certificates for professional driving and transport safety, including ADR, brake licence, and other vehicle handling qualifications.</p>
+      </a>
+    </div>
 
-    <a class="link-card" href="https://spouseprogram.fi" target="_blank">
-      <h3>Spouse Program Finland</h3>
-      <p>Career support for partners.</p>
-    </a>
-
-    <a class="link-card" href="https://helsinkifriends.fi" target="_blank">
-      <h3>Helsinki Friends</h3>
-      <p>Social connections and community.</p>
-    </a>
   </div>
-</div>
+
+  <!-- NETWORKING & SOCIAL COMBINED -->
+  <div id="networking-social" class="tab-content">
+    <h2>Networking & Social</h2>
+    <p>
+      Building a professional network and social connections in Finland is key to career growth and integration. 
+      This section brings together organizations, programs, and community opportunities to help international professionals
+      connect with mentors, peers, employers, and local communities.
+    </p>
+
+    <div class="card-grid">
+      <!-- Networking Cards -->
+      <a class="link-card" href="https://ihhelsinki.fi/" target="_blank">
+        <h3>International House Helsinki</h3>
+        <p>Integration & career support</p>
+      </a>
+      <a class="link-card" href="https://startuprefugees.com/" target="_blank">
+        <h3>Startup Refugees</h3>
+        <p>Mentoring & employment support</p>
+      </a>
+      <a class="link-card" href="https://spouseprogram.fi/" target="_blank">
+        <h3>Spouse Program Finland</h3>
+        <p>Career support for partners</p>
+      </a>
+      <a class="link-card" href="https://nerdsbay.com/" target="_blank">
+        <h3>Nerdsbay</h3>
+        <p>Helps specialists relocate to Finland, obtain residence permits, and work legally under EOR model.</p>
+      </a>
+      <a class="link-card" href="https://herizon.io/" target="_blank">
+        <h3>Herizon</h3>
+        <p>Fast-tracks international talent into Finland’s workforce through mentoring, career support, and inclusive programs.</p>
+      </a>
+      <a class="link-card" href="https://www.espoo.fi/" target="_blank">
+        <h3>Espoo Career Club</h3>
+        <p>Networking and career events for professionals in Espoo.</p>
+      </a>
+
+      <!-- Social Cards -->
+      <a class="link-card" href="https://helsinkifriends.fi/" target="_blank">
+        <h3>Helsinki Friends</h3>
+        <p>Meet people & make friends</p>
+      </a>
+      <a class="link-card" href="https://www.flowerescue.org/" target="_blank">
+        <h3>Flower Rescue</h3>
+        <p>Volunteering opportunities</p>
+      </a>
+    </div>
+  </div>
 
 </div>
 
@@ -260,18 +460,18 @@ footer {
 </footer>
 
 <script>
-function showTab(tabId, btn) {
-  document.querySelectorAll('.tab-content').forEach(tab => {
-    tab.style.display = 'none';
-  });
-  document.getElementById(tabId).style.display = 'block';
+  function showTab(tabId, btn) {
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.style.display = 'none');
 
-  document.querySelectorAll('nav a').forEach(a => {
-    a.classList.remove('active');
-  });
-  if (btn) btn.classList.add('active');
-}
+    document.getElementById(tabId).style.display = 'block';
+
+    // Highlight active tab
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+  }
 </script>
 
 </body>
 </html>
+
