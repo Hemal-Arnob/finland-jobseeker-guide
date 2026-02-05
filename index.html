@@ -96,7 +96,6 @@
 
     h2 {
       color: var(--primary);
-      margin-top: 0;
       margin-bottom: 20px;
     }
 
@@ -135,13 +134,26 @@
       background: #f0f5ff;
     }
 
+    .logo {
+      height: 42px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      max-height: 42px;
+      max-width: 120px;
+      object-fit: contain;
+    }
+
     .link-card h3 {
       margin: 0 0 8px;
       font-size: 18px;
     }
 
     .link-card p {
-      margin: 0;
+      margin: 0 0 6px;
       font-size: 14px;
       color: #555;
     }
@@ -161,13 +173,8 @@
 <header>
   <h1>Job Search & Integration Resources – Finland</h1>
   <p>
-    Our website is designed to support highly educated international professionals living in Finland.
-    Here you can find clear, practical, and up-to-date information to help you understand the Finnish job
-    market and navigate your job search with confidence.
-    <br><br>
-    Whether you are just arriving in Finland or already building your career here, this platform brings
-    together essential job portals, language learning opportunities, certifications, networking resources,
-    and community support in one place.
+    Practical resources for highly educated international professionals living in Finland.
+    Job search platforms, language learning, certifications, networking, and social integration — all in one place.
   </p>
 </header>
 
@@ -185,41 +192,49 @@
   <div id="jobsearch" class="tab-content active">
     <h2>Job Search Platforms</h2>
     <div class="card-grid">
+
       <a class="link-card" href="https://www.linkedin.com" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/linkedin.com" alt="LinkedIn"></div>
         <h3>LinkedIn</h3>
         <p>Professional networking & job listings</p>
-        <p>Connect with recruiters, follow Finnish companies, and find jobs in IT, engineering, and management roles.</p>
+        <p>Recruiters, companies, and English-friendly roles.</p>
       </a>
 
       <a class="link-card" href="https://fi.indeed.com" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/indeed.com" alt="Indeed"></div>
         <h3>Indeed Finland</h3>
         <p>Jobs across all industries</p>
-        <p>Aggregate of job postings from Finnish companies, suitable for both Finnish and English-speaking applicants.</p>
+        <p>Large job aggregate for Finnish companies.</p>
       </a>
 
       <a class="link-card" href="https://tyomarkkinatori.fi" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/tyomarkkinatori.fi" alt="Työmarkkinatori"></div>
         <h3>Työmarkkinatori</h3>
         <p>National employment service</p>
-        <p>Official government platform offering guidance, job listings, and integration support for newcomers.</p>
+        <p>Official guidance and job listings.</p>
       </a>
 
       <a class="link-card" href="https://www.workinfinland.com/en/" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/workinfinland.com" alt="Work in Finland"></div>
         <h3>Work in Finland</h3>
         <p>English-friendly roles</p>
-        <p>Official portal for international professionals, with IT, engineering, and healthcare vacancies in English.</p>
+        <p>IT, engineering, healthcare, and more.</p>
       </a>
 
       <a class="link-card" href="https://valtiolle.fi/en/" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/valtiolle.fi" alt="Valtiolle"></div>
         <h3>Valtiolle</h3>
         <p>Government sector jobs</p>
-        <p>Search for positions in public administration and government agencies across Finland.</p>
+        <p>Public administration positions.</p>
       </a>
 
       <a class="link-card" href="https://www.jobly.fi/" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/jobly.fi" alt="Jobly"></div>
         <h3>Jobly</h3>
-        <p>Finnish job portal</p>
-        <p>Private sector listings for professional and technical roles, some in English.</p>
+        <p>Private sector jobs</p>
+        <p>Professional and technical roles.</p>
       </a>
+
     </div>
   </div>
 
@@ -227,23 +242,28 @@
   <div id="courses" class="tab-content">
     <h2>Finnish Language Learning</h2>
     <div class="card-grid">
+
       <a class="link-card" href="https://ilmonet.fi/" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/ilmonet.fi" alt="Ilmonet"></div>
         <h3>Ilmonet</h3>
-        <p>Local adult education courses</p>
-        <p>Beginner to advanced Finnish courses at adult education centers across Finland.</p>
+        <p>Adult education courses</p>
+        <p>Beginner to advanced Finnish.</p>
       </a>
 
       <a class="link-card" href="https://finnishcourses.fi/" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/finnishcourses.fi" alt="FinnishCourses"></div>
         <h3>FinnishCourses.fi</h3>
         <p>Nationwide course search</p>
-        <p>Find Finnish language courses for adults in multiple cities.</p>
+        <p>Courses in multiple cities.</p>
       </a>
 
       <a class="link-card" href="https://www.kielibuusti.fi/en/learn-finnish" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/kielibuusti.fi" alt="Kielibuusti"></div>
         <h3>Kielibuusti</h3>
-        <p>Free learning support</p>
-        <p>Online materials and exercises to improve Finnish language skills.</p>
+        <p>Free learning materials</p>
+        <p>Online Finnish practice.</p>
       </a>
+
     </div>
   </div>
 
@@ -251,17 +271,21 @@
   <div id="certifications" class="tab-content">
     <h2>Certifications</h2>
     <div class="card-grid">
+
       <a class="link-card" href="https://www.pry.fi/en/ipma-certification/" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/pry.fi" alt="IPMA"></div>
         <h3>IPMA</h3>
-        <p>Project management certification</p>
-        <p>Recognized in Finland for engineering and IT project managers.</p>
+        <p>Project management</p>
+        <p>Recognized in Finland.</p>
       </a>
 
       <a class="link-card" href="https://www.pmi.org/certifications/project-management-pmp" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/pmi.org" alt="PMI"></div>
         <h3>PMI</h3>
-        <p>PMP & CAPM credentials</p>
-        <p>Globally recognized project management certifications.</p>
+        <p>PMP & CAPM</p>
+        <p>Globally recognized credentials.</p>
       </a>
+
     </div>
   </div>
 
@@ -269,23 +293,28 @@
   <div id="networking" class="tab-content">
     <h2>Networking & Support</h2>
     <div class="card-grid">
+
       <a class="link-card" href="https://ihhelsinki.fi/" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/ihhelsinki.fi" alt="IHH"></div>
         <h3>International House Helsinki</h3>
-        <p>Integration & career services</p>
-        <p>Career guidance, events, and mentoring for internationals.</p>
+        <p>Career & integration services</p>
+        <p>Events, mentoring, guidance.</p>
       </a>
 
       <a class="link-card" href="https://startuprefugees.com/" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/startuprefugees.com" alt="Startup Refugees"></div>
         <h3>Startup Refugees</h3>
-        <p>Mentoring & employment support</p>
-        <p>Connect with Finnish startups and job opportunities.</p>
+        <p>Mentoring & employment</p>
+        <p>Connect with Finnish startups.</p>
       </a>
 
       <a class="link-card" href="https://spouseprogram.fi/" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/spouseprogram.fi" alt="Spouse Program"></div>
         <h3>Spouse Program Finland</h3>
-        <p>Career support for partners</p>
-        <p>Career counseling, training, and job search help.</p>
+        <p>Career support</p>
+        <p>Training and job search help.</p>
       </a>
+
     </div>
   </div>
 
@@ -293,17 +322,21 @@
   <div id="social" class="tab-content">
     <h2>Social & Community</h2>
     <div class="card-grid">
+
       <a class="link-card" href="https://helsinkifriends.fi/" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/helsinkifriends.fi" alt="Helsinki Friends"></div>
         <h3>Helsinki Friends</h3>
-        <p>Meet people & make friends</p>
-        <p>Social events and community activities in Helsinki.</p>
+        <p>Social events</p>
+        <p>Meet people & build community.</p>
       </a>
 
       <a class="link-card" href="https://www.flowerescue.org/" target="_blank">
+        <div class="logo"><img src="https://logo.clearbit.com/flowerescue.org" alt="Flower Rescue"></div>
         <h3>Flower Rescue</h3>
-        <p>Volunteering opportunities</p>
-        <p>Volunteer while building your local network.</p>
+        <p>Volunteering</p>
+        <p>Build your local network.</p>
       </a>
+
     </div>
   </div>
 
