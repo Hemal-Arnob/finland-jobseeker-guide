@@ -1,179 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Job Search & Integration Resources – Finland</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finland Job Search & Integration Guide</title>
 
-  <style>
-    :root {
-      --primary: #002F6C;
-      --primary-dark: #001F49;
-      --accent: #f4d03f;
-      --bg-gradient: linear-gradient(180deg, #f5f7fa, #eef2f7);
-      --card-gradient: linear-gradient(145deg, #ffffff, #f2f6ff);
-    }
+<style>
+:root {
+  --primary: #002f6c;
+  --primary-dark: #001f49;
+  --bg: #f5f7fa;
+  --card-bg: #ffffff;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background: var(--bg-gradient);
-      line-height: 1.6;
-      color: #222;
-    }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  line-height: 1.6;
+}
 
-    /* Header */
-    header {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
-    }
+/* Header */
+header {
+  background: linear-gradient(135deg, #002f6c, #004a9f);
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
 
-    header h1 {
-      margin-bottom: 14px;
-    }
+header h1 {
+  margin-bottom: 12px;
+}
 
-    header p {
-      max-width: 900px;
-      margin: auto;
-      font-size: 1.1rem;
-      opacity: 0.95;
-    }
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: var(--primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    /* Navigation */
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+nav a {
+  color: white;
+  padding: 16px 22px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 16px 22px;
-      transition: background 0.3s ease, color 0.3s ease;
-      cursor: pointer;
-    }
+nav a:hover {
+  background: var(--primary-dark);
+}
 
-    nav a:hover {
-      background: rgba(255,255,255,0.12);
-    }
+nav a.active {
+  background: var(--primary-dark);
+}
 
-    nav a.active {
-      background: rgba(255,255,255,0.18);
-      border-bottom: 3px solid var(--accent);
-    }
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
 
-    /* Layout */
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+.tab-content {
+  display: none;
+  animation: fade 0.4s ease;
+}
 
-    .tab-content {
-      display: none;
-      animation: fadeSlide 0.45s ease;
-    }
+@keyframes fade {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+h2 {
+  color: var(--primary);
+  margin-bottom: 20px;
+}
 
-    h2 {
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
+/* Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
 
-    h3 {
-      color: var(--primary-dark);
-    }
+.link-card {
+  background: linear-gradient(135deg, #ffffff, #f0f4ff);
+  padding: 26px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--primary);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    /* Cards */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-      margin-top: 20px;
-    }
+.link-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.2);
+}
 
-    .link-card {
-      display: block;
-      background: var(--card-gradient);
-      padding: 26px;
-      border-radius: 16px;
-      text-decoration: none;
-      color: var(--primary);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.08);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      position: relative;
-      overflow: hidden;
-    }
+.link-card h3 {
+  margin-top: 0;
+}
 
-    .link-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent, rgba(0,47,108,0.08), transparent);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-    }
+.link-card p {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #444;
+}
 
-    .link-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.18);
-    }
-
-    .link-card:hover::before {
-      opacity: 1;
-    }
-
-    .link-card p {
-      margin: 0;
-      font-size: 14px;
-      color: #555;
-    }
-
-    /* Tips */
-    .tips {
-      margin-top: 30px;
-      background: linear-gradient(145deg, #eef3ff, #f7f9ff);
-      border-left: 6px solid var(--primary);
-      padding: 22px;
-      border-radius: 14px;
-      font-size: 14px;
-    }
-
-    .tips h3 {
-      margin-top: 0;
-    }
-
-    .tips li {
-      margin-bottom: 8px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #eaeaea;
-      margin-top: 50px;
-      font-size: 14px;
-    }
-  </style>
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #eaeaea;
+  margin-top: 40px;
+  font-size: 14px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <h1>Job Search & Integration Resources – Finland</h1>
-  <p>Guiding International Professionals Forward – From Arrival to Achievement.</p>
+  <p>Supporting international professionals from arrival to employment.</p>
 </header>
 
 <nav>
@@ -186,58 +141,117 @@
 
 <div class="container">
 
-  <!-- HOME -->
-  <div id="intro" class="tab-content" style="display:block;">
-    <p>
-      Our website is designed to support all personnel arriving in Finland, as well as highly educated international
-      professionals who are living in Finland. Here, you can find clear, practical, and up-to-date information to help
-      you understand the Finnish job market and navigate your job search with confidence.
-    </p>
-  </div>
+<!-- HOME -->
+<div id="intro" class="tab-content" style="display:block;">
+  <p>
+    This website is designed to support people arriving in Finland as well as highly educated
+    international professionals already living here. It brings together key resources to help
+    you understand the Finnish job market, required skills, certifications, and networking opportunities.
+  </p>
+</div>
 
-  <!-- JOB SEARCH -->
-  <div id="jobsearch" class="tab-content">
-    <h2>Job Search Platforms</h2>
-    <div class="card-grid">
-      <a class="link-card" href="https://www.linkedin.com" target="_blank"><h3>LinkedIn</h3><p>Professional networking & job listings</p></a>
-      <a class="link-card" href="https://fi.indeed.com" target="_blank"><h3>Indeed Finland</h3><p>Jobs across all industries</p></a>
-      <a class="link-card" href="https://tyomarkkinatori.fi" target="_blank"><h3>Työmarkkinatori</h3><p>National employment service</p></a>
-      <a class="link-card" href="https://www.workinfinland.com/en/" target="_blank"><h3>Work in Finland</h3><p>English-friendly roles</p></a>
-      <a class="link-card" href="https://valtiolle.fi/en/" target="_blank"><h3>Valtiolle</h3><p>Government & public jobs</p></a>
-      <a class="link-card" href="https://www.jobly.fi/" target="_blank"><h3>Jobly</h3><p>Private sector roles</p></a>
-      <a class="link-card" href="https://www.duunitori.fi/" target="_blank"><h3>Duunitori</h3><p>One of Finland’s largest job boards</p></a>
-    </div>
-  </div>
+<!-- JOB SEARCH -->
+<div id="jobsearch" class="tab-content">
+  <h2>Job Search Platforms</h2>
 
-  <!-- COURSES -->
-  <div id="courses" class="tab-content">
-    <h2>Finnish Language Learning</h2>
-    <div class="card-grid">
-      <a class="link-card" href="https://learnfinnish.org/" target="_blank"><h3>Learn Finnish Online</h3><p>Interactive free lessons</p></a>
-      <a class="link-card" href="https://finnishcourses.fi/fi" target="_blank"><h3>Finnishcourses.fi</h3><p>Course search portal</p></a>
-      <a class="link-card" href="https://www.helsinki.fi/" target="_blank"><h3>University Open Courses</h3><p>Academic Finnish courses</p></a>
-    </div>
-  </div>
+  <div class="card-grid">
+    <a class="link-card" href="https://tyomarkkinatori.fi" target="_blank">
+      <h3>Työmarkkinatori</h3>
+      <p>Official Finnish employment platform.</p>
+    </a>
 
-  <!-- CERTIFICATIONS -->
-  <div id="certifications" class="tab-content">
-    <h2>Job Qualification Cards</h2>
-    <div class="card-grid">
-      <a class="link-card" href="https://hygienepassport.fi/" target="_blank"><h3>Hygiene Passport</h3><p>Food handling certificate</p></a>
-      <a class="link-card" href="https://tyoturvallisuuskortti.fi/" target="_blank"><h3>Occupational Safety Card</h3><p>Workplace safety</p></a>
-      <a class="link-card" href="https://viisipaivaa.fi/korttikoulutukset/" target="_blank"><h3>Fire Safety</h3><p>Basic fire extinguishing</p></a>
-    </div>
-  </div>
+    <a class="link-card" href="https://www.linkedin.com/jobs" target="_blank">
+      <h3>LinkedIn Jobs</h3>
+      <p>Professional networking and job listings.</p>
+    </a>
 
-  <!-- NETWORKING -->
-  <div id="networking-social" class="tab-content">
-    <h2>Networking & Social</h2>
-    <div class="card-grid">
-      <a class="link-card" href="https://ihhelsinki.fi/" target="_blank"><h3>International House Helsinki</h3><p>Integration & career support</p></a>
-      <a class="link-card" href="https://startuprefugees.com/" target="_blank"><h3>Startup Refugees</h3><p>Mentoring & employment</p></a>
-      <a class="link-card" href="https://helsinkifriends.fi/" target="_blank"><h3>Helsinki Friends</h3><p>Meet people & make friends</p></a>
-    </div>
+    <a class="link-card" href="https://www.glassdoor.com" target="_blank">
+      <h3>Glassdoor</h3>
+      <p>Company reviews and job listings.</p>
+    </a>
+
+    <a class="link-card" href="https://thehub.io" target="_blank">
+      <h3>The Hub</h3>
+      <p>Startup and scale-up jobs in the Nordics.</p>
+    </a>
   </div>
+</div>
+
+<!-- FINNISH COURSES -->
+<div id="courses" class="tab-content">
+  <h2>Finnish Language Courses</h2>
+
+  <div class="card-grid">
+    <a class="link-card" href="https://finnishcourses.fi" target="_blank">
+      <h3>Finnishcourses.fi</h3>
+      <p>Official listing of Finnish language courses.</p>
+    </a>
+
+    <a class="link-card" href="https://ilmonet.fi" target="_blank">
+      <h3>Ilmonet</h3>
+      <p>Adult education courses across Finland.</p>
+    </a>
+
+    <a class="link-card" href="https://www.duolingo.com" target="_blank">
+      <h3>Duolingo</h3>
+      <p>Basic Finnish learning online.</p>
+    </a>
+  </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div id="certifications" class="tab-content">
+  <h2>Work Safety & Professional Certifications</h2>
+
+  <div class="card-grid">
+    <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
+      <h3>Occupational Safety Card</h3>
+      <p>Mandatory safety training for many jobs.</p>
+    </a>
+
+    <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
+      <h3>Forklift Safety Card</h3>
+      <p>Required for warehouse and logistics work.</p>
+    </a>
+
+    <a class="link-card" href="https://www.koulutus.fi/haku/lupa-ja-korttikoulutus" target="_blank">
+      <h3>Electric Work Safety (SFS 6002)</h3>
+      <p>Electrical safety certification.</p>
+    </a>
+
+    <a class="link-card" href="https://viisipaivaa.fi/korttikoulutukset/" target="_blank">
+      <h3>Fire Safety & Extinguishing</h3>
+      <p>Basic fire safety training.</p>
+    </a>
+  </div>
+</div>
+
+<!-- NETWORKING -->
+<div id="networking-social" class="tab-content">
+  <h2>Networking & Social Support</h2>
+
+  <div class="card-grid">
+    <a class="link-card" href="https://ihhelsinki.fi" target="_blank">
+      <h3>International House Helsinki</h3>
+      <p>Integration and career services.</p>
+    </a>
+
+    <a class="link-card" href="https://startuprefugees.com" target="_blank">
+      <h3>Startup Refugees</h3>
+      <p>Mentoring and employment support.</p>
+    </a>
+
+    <a class="link-card" href="https://spouseprogram.fi" target="_blank">
+      <h3>Spouse Program Finland</h3>
+      <p>Career support for partners.</p>
+    </a>
+
+    <a class="link-card" href="https://helsinkifriends.fi" target="_blank">
+      <h3>Helsinki Friends</h3>
+      <p>Social connections and community.</p>
+    </a>
+  </div>
+</div>
 
 </div>
 
@@ -246,12 +260,17 @@
 </footer>
 
 <script>
-  function showTab(tabId, btn) {
-    document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
-    document.getElementById(tabId).style.display = 'block';
-    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-    btn.classList.add('active');
-  }
+function showTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(tab => {
+    tab.style.display = 'none';
+  });
+  document.getElementById(tabId).style.display = 'block';
+
+  document.querySelectorAll('nav a').forEach(a => {
+    a.classList.remove('active');
+  });
+  if (btn) btn.classList.add('active');
+}
 </script>
 
 </body>
