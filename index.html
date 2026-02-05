@@ -3,241 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Job Search & Integration Resources – Finland</title>
+  <title>Career Support Finland</title>
 
   <style>
-    :root {
-      --primary: #1e5bb8;
-      --primary-dark: #17448a;
-      --accent: #f4d03f;
-      --bg: #f5f7fa;
-      --card-bg: #ffffff;
-    }
-
     body {
-      font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      background: var(--bg);
-      line-height: 1.6;
-      scroll-behavior: smooth;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #333;
     }
 
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin-bottom: 16px;
-    }
-
-    header p {
-      max-width: 900px;
-      margin: auto;
-      font-size: 16px;
-      opacity: 0.95;
-    }
-
-    /* NAV */
+    /* Navigation */
     nav {
+      background: #0f2a44;
+      padding: 12px 24px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background: var(--primary);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      gap: 24px;
     }
 
     nav a {
-      color: white;
-      padding: 16px 22px;
+      color: #ffffff;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 15px;
-      transition: background 0.3s;
+      font-weight: 500;
+      cursor: pointer;
     }
 
     nav a:hover {
-      background: var(--primary-dark);
+      text-decoration: underline;
     }
 
-    /* SECTIONS */
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
+    /* Main container */
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
 
-    section h2 {
-      color: var(--primary);
-      margin-bottom: 24px;
-      text-align: center;
+    /* Intro text (shown on load) */
+    #intro {
+      font-size: 1.1rem;
+      line-height: 1.7;
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-    }
-
-    .link-card {
-      background: var(--card-bg);
-      padding: 26px;
-      border-radius: 16px;
-      text-decoration: none;
-      color: var(--primary);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-
-    .link-card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 6px;
-      height: 100%;
-      background: var(--primary);
-      border-radius: 16px 0 0 16px;
-    }
-
-    .link-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 18px 40px rgba(30,91,184,0.25);
-    }
-
-    .link-card h3 {
-      margin-top: 0;
-      margin-bottom: 6px;
-    }
-
-    .link-card p {
-      margin: 0;
-      font-size: 14px;
-      color: #555;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #eaeaea;
-      margin-top: 60px;
-      font-size: 14px;
+    /* Tab content (hidden by default) */
+    .tab-content {
+      display: none;
+      font-size: 1.05rem;
+      line-height: 1.6;
     }
   </style>
 </head>
 
 <body>
 
-<!-- LANDING / INTRO -->
-<header>
-  <h1>Job Search & Integration Resources – Finland</h1>
-  <p>
-    Our website is designed to support highly educated international professionals living in Finland.
-    Here you can find clear, practical, and up-to-date information to help you understand the Finnish job
-    market and navigate your job search with confidence.
-    <br><br>
-    Whether you are just arriving in Finland or already building your career here, this platform brings
-    together essential job portals, language learning opportunities, certifications, networking resources,
-    and community support in one place.
-  </p>
-</header>
+  <!-- Navigation Tabs -->
+  <nav>
+    <a onclick="showTab('intro')">Home</a>
+    <a onclick="showTab('jobs')">Jobs</a>
+    <a onclick="showTab('language')">Language</a>
+    <a onclick="showTab('networking')">Networking</a>
+    <a onclick="showTab('about')">About</a>
+  </nav>
 
-<!-- NAVIGATION -->
-<nav>
-  <a href="#jobsearch">Job Search</a>
-  <a href="#courses">Finnish Courses</a>
-  <a href="#certifications">Certifications</a>
-  <a href="#networking">Networking</a>
-  <a href="#social">Social</a>
-</nav>
+  <!-- Main Content -->
+  <div class="container">
 
-<!-- JOB SEARCH -->
-<section id="jobsearch">
-  <h2>Job Search Platforms</h2>
-  <div class="card-grid">
-    <a class="link-card" href="https://www.linkedin.com" target="_blank">
-      <h3>LinkedIn</h3>
-      <p>Professional networking & job listings</p>
-    </a>
-    <a class="link-card" href="https://fi.indeed.com" target="_blank">
-      <h3>Indeed Finland</h3>
-      <p>Jobs across all industries</p>
-    </a>
-    <a class="link-card" href="https://tyomarkkinatori.fi" target="_blank">
-      <h3>Työmarkkinatori</h3>
-      <p>National employment service</p>
-    </a>
+    <!-- Intro (DEFAULT VIEW) -->
+    <div id="intro" class="tab-content" style="display: block;">
+      <p>
+        Our website is designed to support highly educated international professionals
+        who are living in Finland. Here, you can find clear, practical, and up-to-date
+        information to help you understand the Finnish job market and navigate your job
+        search with confidence.
+      </p>
+
+      <p>
+        Whether you are just arriving in Finland or already building your career here,
+        this platform brings together the key resources you need in one place.
+      </p>
+    </div>
+
+    <!-- Jobs -->
+    <div id="jobs" class="tab-content">
+      <h2>Jobs</h2>
+      <p>Find Finnish job portals, application tips, and sector-specific guidance.</p>
+    </div>
+
+    <!-- Language -->
+    <div id="language" class="tab-content">
+      <h2>Language</h2>
+      <p>Resources for learning Finnish and Swedish for professional life.</p>
+    </div>
+
+    <!-- Networking -->
+    <div id="networking" class="tab-content">
+      <h2>Networking</h2>
+      <p>Events, communities, and platforms to grow your professional network.</p>
+    </div>
+
+    <!-- About -->
+    <div id="about" class="tab-content">
+      <h2>About</h2>
+      <p>This platform helps international professionals integrate into working life in Finland.</p>
+    </div>
+
   </div>
-</section>
 
-<!-- COURSES -->
-<section id="courses">
-  <h2>Finnish Language Learning</h2>
-  <div class="card-grid">
-    <a class="link-card" href="https://ilmonet.fi/" target="_blank">
-      <h3>Ilmonet</h3>
-      <p>Adult education courses</p>
-    </a>
-    <a class="link-card" href="https://finnishcourses.fi/" target="_blank">
-      <h3>FinnishCourses.fi</h3>
-      <p>Nationwide course search</p>
-    </a>
-  </div>
-</section>
+  <!-- JavaScript -->
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.style.display = 'none');
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <h2>Certifications</h2>
-  <div class="card-grid">
-    <a class="link-card" href="https://www.pry.fi/en/ipma-certification/" target="_blank">
-      <h3>IPMA</h3>
-      <p>Project management certification</p>
-    </a>
-    <a class="link-card" href="https://www.pmi.org/certifications/project-management-pmp" target="_blank">
-      <h3>PMI</h3>
-      <p>PMP & CAPM credentials</p>
-    </a>
-  </div>
-</section>
-
-<!-- NETWORKING -->
-<section id="networking">
-  <h2>Networking & Support</h2>
-  <div class="card-grid">
-    <a class="link-card" href="https://ihhelsinki.fi/" target="_blank">
-      <h3>International House Helsinki</h3>
-      <p>Career & integration services</p>
-    </a>
-    <a class="link-card" href="https://startuprefugees.com/" target="_blank">
-      <h3>Startup Refugees</h3>
-      <p>Employment support</p>
-    </a>
-  </div>
-</section>
-
-<!-- SOCIAL -->
-<section id="social">
-  <h2>Social & Community</h2>
-  <div class="card-grid">
-    <a class="link-card" href="https://helsinkifriends.fi/" target="_blank">
-      <h3>Helsinki Friends</h3>
-      <p>Meet people & socialize</p>
-    </a>
-    <a class="link-card" href="https://www.flowerescue.org/" target="_blank">
-      <h3>Flower Rescue</h3>
-      <p>Volunteering opportunities</p>
-    </a>
-  </div>
-</section>
-
-<footer>
-  © 2026 – Finland Job Search & Integration Guide
-</footer>
+      document.getElementById(tabId).style.display = 'block';
+    }
+  </script>
 
 </body>
 </html>
